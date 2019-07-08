@@ -322,6 +322,7 @@ MonoBehaviour:
   characterController: {fileID: 0}
   isMovingInnerMovement: 0
   isMovingOuterMovement: 0
+  floatingEffect: {fileID: 7734127744172182516}
   previousFramePos: {x: 0, y: 0, z: 0}
 --- !u!114 &625488201829187807
 MonoBehaviour:
@@ -399,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharacterAnimationState: 0
   fireFightingTrainingAnimator: {fileID: 0}
+  randomGenerateTrain: {fileID: 0}
 --- !u!1 &625488202097439154
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +584,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e74e42363bad8e24595eacc7850e9c89, type: 3}
+--- !u!1 &7734127744172182516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2580517261864896716, guid: e74e42363bad8e24595eacc7850e9c89,
+    type: 3}
+  m_PrefabInstance: {fileID: 5231761046071984952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7454352338645841902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3452535809629926614, guid: e74e42363bad8e24595eacc7850e9c89,

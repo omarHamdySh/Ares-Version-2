@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class PaceManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Range(1, 4)]
+    public float resourcesConsumptionSpeed = 1;
 }

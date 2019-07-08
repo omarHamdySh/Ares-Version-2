@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c7287897a82144beee9455b45479f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showThisOnly: 0
 --- !u!114 &2774118371993833590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c7287897a82144beee9455b45479f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showThisOnly: 0
 --- !u!114 &8937004029459260248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c7287897a82144beee9455b45479f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showThisOnly: 0
 --- !u!114 &6769847536606124507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1664,6 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c7287897a82144beee9455b45479f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showThisOnly: 0
 --- !u!114 &3769904408900731415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,6 +1902,10 @@ MonoBehaviour:
   jobPathFinders: []
   productionJobType: 0
   DebuggingUI: {fileID: 3361020342770974129}
+  NumOfCharInRoom: 0
+  gemButton: {fileID: 0}
+  lights:
+  - {fileID: 7326870745643395227}
 --- !u!114 &3461704659317637841
 MonoBehaviour:
   m_ObjectHideFlags: 0

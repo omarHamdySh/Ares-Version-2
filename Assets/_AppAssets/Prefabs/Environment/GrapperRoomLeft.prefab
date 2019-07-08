@@ -1208,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6651490803125691765
 Transform:
   m_ObjectHideFlags: 0
@@ -2501,6 +2501,10 @@ MonoBehaviour:
   jobPathFinders: []
   productionJobType: 0
   DebuggingUI: {fileID: 4834104275571160546}
+  NumOfCharInRoom: 0
+  gemButton: {fileID: 0}
+  lights:
+  - {fileID: 4265187909765996504}
 --- !u!114 &3703037421612378110
 MonoBehaviour:
   m_ObjectHideFlags: 0

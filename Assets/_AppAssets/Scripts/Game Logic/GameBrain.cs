@@ -32,7 +32,7 @@ public class GameBrain : MonoBehaviour
     public ResourcesManager resourcesManager;
     public TimeManager timeManager;
     public GameplayFSMManager gameplayFSMManager;
-
+    public PaceManager paceManager;
     public static GameBrain Instance
     {
         get { return _Instance; }

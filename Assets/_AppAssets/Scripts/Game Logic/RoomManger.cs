@@ -31,6 +31,7 @@ public class RoomManger : MonoBehaviour
             Debug.Log(room.roomGameObject.transform.name);
         }
 
+
     }
 
     public void OnEvacuate(Character character)
@@ -117,14 +118,14 @@ public class RoomManger : MonoBehaviour
     public GameObject populateAndGetContainerRoom(GameObject draggableItem)
     {
         //LevelManager.Instance.roomManager.getRoomWithGameObject(drag)
-        foreach (KeyValuePair<Room,Bounds> entry in roomsBounds)
+        foreach (KeyValuePair<Room, Bounds> entry in roomsBounds)
         {
-            var s= entry.Key.roomGameObject.name;
+            var s = entry.Key.roomGameObject.name;
             var n = draggableItem.gameObject.name;
 
             if (entry.Value.Contains(draggableItem.transform.position))
             {
-                populateToARoom(entry.Key.roomGameObject ,draggableItem);
+                populateToARoom(entry.Key.roomGameObject, draggableItem);
                 return entry.Key.roomGameObject;
             }
         }
@@ -153,7 +154,30 @@ public class RoomManger : MonoBehaviour
         currentRoom.contents.Remove(containedObj);
         var obj = LevelManager.Instance.characterManager.getCharacterWithGameObject(containedObj);
         if (obj != null)
+        {
             OnEvacuate(obj);
+            handleRoomLights(roomGameObject);
+        }
+    }
+
+    private static void handleRoomLights(GameObject roomGameObject)
+    {
+        var lightsList = roomGameObject.GetComponentInChildren<RoomEntity>().lights;
+        bool isSomeBodyThere = false;
+        foreach (var job in roomGameObject.GetComponentInChildren<JobEntity>().roomJobs)
+        {
+            if (job.jobState == JobState.Occupied && job.jobHolder != null)
+            {
+                isSomeBodyThere = true;
+            }
+        }
+        if (!isSomeBodyThere)
+        {
+            foreach (var light in lightsList)
+            {
+                light.SetActive(false);
+            }
+        }
     }
     #endregion
 

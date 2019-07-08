@@ -21,7 +21,7 @@ public class CharacterEntity : MonoBehaviour
     public bool isMovingOuterMovement;
     private float walkingSpeed;
     private bool isFristTime = true;
-
+    public GameObject floatingEffect;
     //------------------------------------------------
     public Vector3 previousFramePos;
 
@@ -262,8 +262,9 @@ public class CharacterEntity : MonoBehaviour
     public void OnPathFollowingEnd(SlotDir enteranceDir)
     {
         isMovingOuterMovement = false;
-
+        floatingEffect.SetActive(false);
         RoomEntity roomEntity = character.container.GetComponentInChildren<RoomEntity>();
+        handleRoomLighting(roomEntity);
         if (enteranceDir == SlotDir.Left)
         {
             character.containerEntrance = roomEntity.leftEntrance;
@@ -339,6 +340,7 @@ public class CharacterEntity : MonoBehaviour
         //    characterAnimationFSM.changeAnimationStateTo(CharacterAnimationsState.Walking);
         //}
         characterAnimationFSM.changeAnimationStateTo(CharacterAnimationsState.Floating);
+        floatingEffect.SetActive(true);
 
     }
 
@@ -390,7 +392,25 @@ public class CharacterEntity : MonoBehaviour
         }
     }
 
-
+    public void handleRoomLighting(RoomEntity roomEntity)
+    {
+        var lightsList = roomEntity.lights;
+        bool isSomeBodyThere = false;
+        foreach (var job in roomEntity.GetComponentInChildren<JobEntity>().roomJobs)
+        {
+            if (job.jobState ==JobState.Occupied && job.jobHolder!=null)
+            {
+                isSomeBodyThere = true;
+            }
+        }
+        if (isSomeBodyThere)
+        {
+            foreach (var light in lightsList)
+            {
+                light.SetActive(true);
+            }
+        }
+    }
 
 
     #region Deprecated JobPathFindingCode

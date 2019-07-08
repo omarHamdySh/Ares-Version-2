@@ -966,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1610695463308390413
 Transform:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3371299952033020196}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1779,6 +1779,8 @@ MonoBehaviour:
   DebuggingUI: {fileID: 5157238673447989108}
   NumOfCharInRoom: 0
   gemButton: {fileID: 4274317343389428171}
+  lights:
+  - {fileID: 3371299952033020196}
 --- !u!114 &2303665019286024652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2039,7 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceType: 0
-  productionRatePerSecond: 4
+  productionRatePerSecond: 2
 --- !u!114 &1830971171622911844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3563,6 +3565,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4548409364813521913}
     m_Modifications:
+    - target: {fileID: 2732995174177359717, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_Name
+      value: CapsuleBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359717, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359717, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2732995174177528645, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3618,10 +3635,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2732995174177359717, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+    - target: {fileID: 2732995174177359715, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
         type: 3}
-      propertyPath: m_Name
-      value: CapsuleBody
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359713, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359713, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359719, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732995174177359719, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2891381628953565733, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
         type: 3}
@@ -3637,16 +3674,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
       value: 0.009304662
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732995174177359713, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2732995174177359719, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14b1f3b7dbb63de4c856e6801bc8e6d7, type: 3}

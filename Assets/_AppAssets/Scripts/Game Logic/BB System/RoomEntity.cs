@@ -14,9 +14,9 @@ public class RoomEntity : MonoBehaviour
     public CapsuleProcessesData DebuggingUI;
     public int NumOfCharInRoom;
 
-
     //----------------------------------------------------
     public GameObject gemButton;
+    public List<GameObject> lights;
 
     public void Start()
     {

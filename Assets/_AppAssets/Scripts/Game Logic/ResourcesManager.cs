@@ -94,7 +94,8 @@ public class ResourcesManager : MonoBehaviour
             List<ResourceProducer> resourceProducers = producers.FindAll(c => c.resource == resource);
             float totalProductionsPerCycle = 2 * (30 * resourceProducers.Count); //2 is the number of hours that is needed to complete production cycle 
             float consumptionRatesFactor = (totalProductionsPerCycle / resourceConsumers.Count) / 100;
-            float averageConsumtionRates = consumptionRatesFactor *( resourceConsumers.Count);
+            float averageConsumtionRates = consumptionRatesFactor *( resourceConsumers.Count/
+                (5f-GameBrain.Instance.paceManager.resourcesConsumptionSpeed));
             consumeFromThis(resource, averageConsumtionRates);
             resource.valueInPercentage = (resource.valueInPercentage >= 0) ? resource.valueInPercentage : 0;
         }

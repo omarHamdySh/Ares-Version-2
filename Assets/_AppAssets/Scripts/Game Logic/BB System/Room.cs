@@ -181,7 +181,7 @@ public class Room
     {
         List<ResourceProducer> resourceProducers = GameBrain.Instance.resourcesManager.producers.FindAll(c => c.resource == roomProductionResource);
 
-        float load = (roomResourceLoad / resourceProducers.Count)/10;
+        float load = (roomResourceLoad / resourceProducers.Count);
         roomProductionResource.valueInPercentage += load;
         roomProductionResource.valueInPercentage =
             (roomProductionResource.valueInPercentage + load >= 100)
