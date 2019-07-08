@@ -190,6 +190,7 @@ public class Room
         roomResourceLoad = 0;
         roomWorkedHours = 0;
         reflectInRoomDebuggerUI();
+
     }
 
     /// <summary>
