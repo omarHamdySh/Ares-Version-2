@@ -111,7 +111,7 @@ public class Room
     {
         foreach (var job in roomJobs)
         {
-            if (job.jobState == JobState.Occupied)
+            if (job.jobState == JobState.Occupied && job.jobHolder!=null)
             {
                 isOneOrBothJobsOccupied = true;
             }
