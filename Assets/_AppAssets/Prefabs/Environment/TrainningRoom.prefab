@@ -415,7 +415,7 @@ MonoBehaviour:
   job2State: {fileID: 7142826735727283381}
   productionResourceName: {fileID: 371876597460765614}
   roomProductivityTxt: {fileID: 9018358940399358414}
-  producitonResource: {fileID: 64037089175141645}
+  producitonResource: {fileID: 0}
   jobEntity: {fileID: 3746594758149791944}
 --- !u!1 &854605898414020591
 GameObject:
@@ -1915,8 +1915,6 @@ GameObject:
   - component: {fileID: 6687967882721900746}
   - component: {fileID: 1356653189910989937}
   - component: {fileID: 3746594758149791944}
-  - component: {fileID: 64037089175141645}
-  - component: {fileID: 8584574694612335295}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1969,6 +1967,8 @@ MonoBehaviour:
   jobPathFinders: []
   productionJobType: 0
   DebuggingUI: {fileID: 8373580677939985802}
+  NumOfCharInRoom: 0
+  gemButton: {fileID: 0}
 --- !u!114 &3746594758149791944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,32 +2216,6 @@ MonoBehaviour:
     jobAcquisionHour: 0
     jobPosition: {fileID: 0}
     jobFacingDirection: 1
---- !u!114 &64037089175141645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072301637012259884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4333fc09eaccbaa4bb8b3c08a25fe00f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceType: 0
-  productionRatePerSecond: 0.1
---- !u!114 &8584574694612335295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072301637012259884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045bd3c3630aeef419eebbe3782af01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7405703509034494337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,15 +2978,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69d1403de8343e4485d347b860475f9, type: 3}
---- !u!4 &8086311036691035624 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5191919623850559855, guid: e69d1403de8343e4485d347b860475f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 4050212059050425479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &8086311036693460746 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5191919623848266637, guid: e69d1403de8343e4485d347b860475f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4050212059050425479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8086311036691035624 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5191919623850559855, guid: e69d1403de8343e4485d347b860475f9,
     type: 3}
   m_PrefabInstance: {fileID: 4050212059050425479}
   m_PrefabAsset: {fileID: 0}

@@ -99,21 +99,21 @@ public class GameBrain : MonoBehaviour
         Debug.Log(msg);
     }
 
+
     public void OnSecondChange()
     {//Called each real second
-       // resourcesManager.OnSecondChange();
+        resourcesManager.OnSecondChange();
     }
     public void OnMinuteChange()
     {//Called each real Minute
-
     }
     public void OnGameHourChange()
     {//Called each Game Hour
+        resourcesManager.OnGameHourChange();
 
     }
     public void OnGameDayChange()
     {// Called each Game Day
-
     }
 
 

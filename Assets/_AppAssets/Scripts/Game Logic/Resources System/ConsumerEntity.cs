@@ -35,4 +35,5 @@ public class ConsumerEntity : MonoBehaviour,IConsumer
        return GameBrain.Instance.resourcesManager.getResource(resourceType);
     }
 
+
 }

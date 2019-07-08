@@ -71,8 +71,8 @@ public class RoomManger : MonoBehaviour
     }
     public void InitializeRoomsResources(Room room)
     {
-        room.roomProductionResource = room.roomGameObject.GetComponentInChildren<ProducerEntity>().getfirstResource();
-        room.roomProductionRate = room.roomGameObject.GetComponentInChildren<ProducerEntity>().getFirstResourceProductionRate();
+        room.roomProductionResource = room.roomGameObject.GetComponentInChildren<ProducerEntity>().getProductionResource();
+        room.roomProductionRate = room.roomGameObject.GetComponentInChildren<ProducerEntity>().getProductionRate();
     }
     public void OnSecondChange()
     {//Called each real second

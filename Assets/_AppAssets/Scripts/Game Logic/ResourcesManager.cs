@@ -57,32 +57,46 @@ public class ResourcesManager : MonoBehaviour
     /// resources each consumer is consuming and at what rate per second does this happens.
     /// </summary>
     /// 
+    float counter;
     private void calculateResourcesConsumption()
     {
 
-        foreach (var resource in gameResources)
-        {
-            foreach (var consumer in consumers)
-            {
-                if (resource.valueInPercentage > 0)
-                {
-                    if (consumer.resourcesConsumptionRates.ContainsKey(resource))
-                    {
-                        resource.totalConsumptionRate += consumer.resourcesConsumptionRates[resource];
-                    }
-                }
+        //foreach (var resource in gameResources)
+        //{
+        //    foreach (var consumer in consumers)
+        //    {
+        //        if (resource.valueInPercentage > 0)
+        //        {
+        //            if (consumer.resourcesConsumptionRates.ContainsKey(resource))
+        //            {
+        //                resource.totalConsumptionRate += consumer.resourcesConsumptionRates[resource];
+        //            }
+        //        }
 
-            }
-        }
+        //    }
+        //}
         foreach (var resource in gameResources)
         {
-            if (resource.valueInPercentage > 0)
+           
+            //if (resource.valueInPercentage > 0)
+            //{
+            //    resource.valueInPercentage -=
+            //     (resource.valueInPercentage - resource.totalConsumptionRate >= 0) ?
+            //       resource.totalConsumptionRate : 0;
+            //    resource.totalConsumptionRate = 0;
+            //}
+            List<ResourceConsumer> resourceConsumers = consumers.FindAll(c => c.resource == resource);
+
+            if (resourceConsumers.Count==0)
             {
-                resource.valueInPercentage -=
-                 (resource.valueInPercentage - resource.totalConsumptionRate >= 0) ?
-                   resource.totalConsumptionRate : 0;
-                resource.totalConsumptionRate = 0;
+                continue;
             }
+            List<ResourceProducer> resourceProducers = producers.FindAll(c => c.resource == resource);
+            float totalProductionsPerCycle = 2 * (30 * resourceProducers.Count); //2 is the number of hours that is needed to complete production cycle 
+            float consumptionRatesFactor = (totalProductionsPerCycle / resourceConsumers.Count) / 100;
+            float averageConsumtionRates = consumptionRatesFactor *( resourceConsumers.Count);
+            consumeFromThis(resource, averageConsumtionRates);
+            resource.valueInPercentage = (resource.valueInPercentage >= 0) ? resource.valueInPercentage : 0;
         }
     }
 
@@ -90,30 +104,34 @@ public class ResourcesManager : MonoBehaviour
     /// Loop on all consumers and decrease the resources percentage according to what 
     /// resources each consumer is consuming and at what rate per second does this happens.
     /// </summary>
-    private void calculateResourcesProduction()
-    {
-        foreach (var resource in gameResources)
-        {
-            foreach (var producer in producers)
-            {
-                if (producer.resourcesProductionRates.ContainsKey(resource))
-                {
-                    Room room = LevelManager.Instance.roomManager.getRoomWithGameObject(producer.ProducerGameObject);
-                    if (LevelManager.Instance.roomManager.rooms.Contains(room))
-                    {
-                        room.roomProductivity = room.roomProductivity * producer.resourcesProductionRates[resource];
-                    }
-                    //resource.valueInPercentage =
-                    //       (resource.valueInPercentage + producer.resourcesProductionRates[resource] <= 100) ?
-                    //        resource.valueInPercentage + producer.resourcesProductionRates[resource] : 100;
-                }
-            }
-        }
-    }
+    //private void calculateResourcesProduction()
+    //{
+    //    foreach (var resource in gameResources)
+    //    {
+    //        foreach (var producer in producers)
+    //        {
+    //            if (producer.resourcesProductionRates.ContainsKey(resource))
+    //            {
+    //                Room room = LevelManager.Instance.roomManager.getRoomWithGameObject(producer.ProducerGameObject);
+    //                if (LevelManager.Instance.roomManager.rooms.Contains(room))
+    //                {
+    //                    room.roomProductivity = room.roomProductivity * producer.resourcesProductionRates[resource];
+    //                }
+    //                resource.valueInPercentage =
+    //                       (resource.valueInPercentage + producer.resourcesProductionRates[resource] <= 100) ?
+    //                        resource.valueInPercentage + producer.resourcesProductionRates[resource] : 100;
+    //            }
+    //        }
+    //    }
+    //}
 
     public void consumeFromThis(Resource resource, float consumptionValue)
     {
+        counter++;
+
         resource.valueInPercentage -= consumptionValue;
+            resource.valueInPercentage =(resource.valueInPercentage < 0) ?  0 : resource.valueInPercentage;
+            resource.totalConsumptionRate = 0;
     }
 
     public Resource getResource(ResourceType resourceType)
@@ -138,7 +156,7 @@ public class ResourcesManager : MonoBehaviour
     }
     public void OnGameHourChange()
     {//Called each Game Hour
-
+        counter=0;
 
     }
     public void OnGameDayChange()

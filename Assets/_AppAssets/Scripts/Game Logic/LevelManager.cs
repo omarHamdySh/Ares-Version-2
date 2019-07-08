@@ -187,23 +187,23 @@ public class LevelManager : MonoBehaviour
     }
     public void OnSecondChange()
     {//Called each real second
-        //this.characterManager.OnSecondChange();
-       // this.roomManager.OnSecondChange();
+        this.characterManager.OnSecondChange();
+        this.roomManager.OnSecondChange();
     }
     public void OnMinuteChange()
     {//Called each real Minute
-        //this.characterManager.OnMinuteChange();
-        //this.roomManager.OnMinuteChange();
+        this.characterManager.OnMinuteChange();
+        this.roomManager.OnMinuteChange();
     }
     public void OnGameHourChange()
     {//Called each Game Hour
-        //this.characterManager.OnGameHourChange();
-        //this.roomManager.OnGameHourChange();
+        this.characterManager.OnGameHourChange();
+        this.roomManager.OnGameHourChange();
     }
     public void OnGameDayChange()
     {// Called each Game Day
-        //this.characterManager.OnGameDayChange();
-        //this.roomManager.OnGameDayChange();
+        this.characterManager.OnGameDayChange();
+        this.roomManager.OnGameDayChange();
     }
     public void toggleTesting()
     {

@@ -89,7 +89,7 @@ public class CharacterManager : MonoBehaviour
         foreach (var character in characters)
         {
 
-            character.calculateCharacterHappiness();
+            //character.calculateCharacterHappiness();
             character.calculateProductivity();
             character.updateStamina();
         }
@@ -103,19 +103,19 @@ public class CharacterManager : MonoBehaviour
 
     public void OnGameHourChange()
     {//Called each Game Hour
-        foreach (var character in characters)
-        {
-            character.updateCurrentCharacterLevelGameTimeDay();
-        }
+        //foreach (var character in characters)
+        //{
+        //    character.updateCurrentCharacterLevelGameTimeDay();
+        //}
     }
 
     public void OnGameDayChange()
     {// Called each Game Day
-        foreach (var character in characters)
-        {
-            character.updateCurrentCharacterLevelGameTimeDay();
-            character.updateCharacterLevel();
-        }
+        //foreach (var character in characters)
+        //{
+        //    character.updateCurrentCharacterLevelGameTimeDay();
+        //    character.updateCharacterLevel();
+        //}
     }
     #endregion
 }

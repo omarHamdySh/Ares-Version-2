@@ -6,6 +6,7 @@ public class ProducerEntity : MonoBehaviour, IProducer
 {
     ResourceProducer resourceProducer;
     ResourceToProduce[] resourcesToProduce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,13 +38,13 @@ public class ProducerEntity : MonoBehaviour, IProducer
         return resourceProducer;
     }
 
-    public Resource getfirstResource()
+    public Resource getProductionResource()
     {
-        return getResource(resourcesToProduce[0].resourceType);
+        return resourceProducer.resource;
     }
-    public float getFirstResourceProductionRate()
+    public float getProductionRate()
     {
-        return resourcesToProduce[0].productionRatePerSecond; ;
+        return resourceProducer.productionRate; ;
     }
     public void appendProducingResources(Resource resource, float productionRate)
     {
@@ -52,4 +53,5 @@ public class ProducerEntity : MonoBehaviour, IProducer
             resourceProducer.addResource(resource, productionRate);
         }
     }
+
 }

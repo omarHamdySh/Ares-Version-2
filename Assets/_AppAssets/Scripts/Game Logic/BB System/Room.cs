@@ -45,16 +45,19 @@ public class Room
 
     public List<GameObject> contents = new List<GameObject>();
     public List<Job> roomJobs = new List<Job>();
+
+    #region Resources Related Data Members
     public productionJobType productionJobType;
     public float roomProductivity;
     public Resource roomProductionResource;
     public float roomProductionRate;
-    #region Resources Related Data Members
+    public float roomResourceLoad;
     public float roomWorkedHours;  //As a counter to be reset at the end of the production cycle
     public int productionCyclePeriod = 2; // A total game hour to a complete production cycle
     public float buildingCost;
     public float maintenanceCost;
     public CapsuleProcessesData debuggingUI;
+
 
     #endregion
 
@@ -68,7 +71,7 @@ public class Room
     /// </summary>
     public void reflectInRoomDebuggerUI()
     {
-        debuggingUI.setProductionProgressValue(roomWorkedHours / productionCyclePeriod);
+        debuggingUI.setProductionProgressValue(roomResourceLoad/100);
     }
 
     /// <summary>
@@ -96,12 +99,11 @@ public class Room
                     jobsProductionRates = calculateMaintenanceProductionRate();
                     break;
             }
-            roomProductivity = jobsProductionRates * roomProductionRate;
+            roomProductivity = /*(jobsProductionRates/roomProductionRate) **/ roomProductionRate;
+            debuggingUI.roomProductivityTxt.text = roomProductivity.ToString() ;
             changeInResourceOverTime();
-            if (GameBrain.Instance.testing)
-            {
-                debuggingUI.setRoomProductivity(roomProductivity);
-            }
+            reflectInRoomDebuggerUI(); //Debugger ui method.
+
         }
     }
 
@@ -120,7 +122,11 @@ public class Room
 
     public void changeInResourceOverTime()
     {//Called each second;
-        roomProductionResource.load += roomProductivity;
+        roomResourceLoad += roomProductivity;
+        if (roomResourceLoad>=100)
+        {
+            this.roomGameObject.GetComponentInChildren<RoomEntity>().showGemUI();
+        }
     }
 
     private float calculateMaintenanceProductionRate()
@@ -138,7 +144,13 @@ public class Room
                 case JobState.Vacant:
                     break;
                 case JobState.Occupied:
-                    jobsProductionRates += (job.jobHolder.productivity / 2);
+                    if (job.jobHolder != null)
+                    {
+                        jobsProductionRates += (job.jobHolder.productivity);
+                    }
+                    else {
+                        jobsProductionRates += roomProductionRate / 2;
+                    }
                     break;
             }
         }
@@ -155,43 +167,47 @@ public class Room
     /// </summary>
     public void calculateProductionCycle()
     {//Called each game hour
-        roomWorkedHours += (roomProductionResource.load / 60)/2;
-        reflectInRoomDebuggerUI(); //Debugger ui method.
+        //roomWorkedHours += roomResourceLoad/60;
 
-        if (roomWorkedHours >= productionCyclePeriod)
-        {
-            roomWorkedHours =0;
-            produceProduct();
-            addResourceLoad();
-        }
-
+        //if (roomWorkedHours >= productionCyclePeriod)
+        //{
+        //    this.roomGameObject.GetComponentInChildren<RoomEntity>().showGemUI();
+        //    //produceProduct();
+        //    //addResourceLoad();
+        //}
     }
 
-    private void addResourceLoad()
+    public void addResourceLoad()
     {
-        roomProductionResource.valueInPercentage +=
-            (roomProductionResource.valueInPercentage + roomProductionResource.load <= 100)
-            ? roomProductionResource.load
-            : 100;
-        roomProductionResource.load = 0;
+        List<ResourceProducer> resourceProducers = GameBrain.Instance.resourcesManager.producers.FindAll(c => c.resource == roomProductionResource);
+
+        float load = (roomResourceLoad / resourceProducers.Count)/10;
+        roomProductionResource.valueInPercentage += load;
+        roomProductionResource.valueInPercentage =
+            (roomProductionResource.valueInPercentage + load >= 100)
+            ? 100   : roomProductionResource.valueInPercentage;
+        roomProductionResource.totalConsumptionRate = 0;
+        roomResourceLoad = 0;
+        roomWorkedHours = 0;
+        reflectInRoomDebuggerUI();
     }
 
     /// <summary>
     /// Produce product to be picked up.
     /// It will reflect to the room, the UI,etc.
     /// </summary>
-    public void produceProduct()
-    {
-        foreach (var obj in contents)
-        {
-            var character = LevelManager.Instance.characterManager.getCharacterWithGameObject(obj);
-            if (character != null)
-            {
-                //Used to count how many production cycles passed
-                character.creditProductionCycle();
-            }
-        }
-    }
+    //public void produceProduct()
+    //{
+    //    foreach (var obj in contents)
+    //    {
+    //        var character = LevelManager.Instance.characterManager.getCharacterWithGameObject(obj);
+    //        if (character != null)
+    //        {
+    //            //Used to count how many production cycles passed
+    //            character.creditProductionCycle();
+    //        }
+    //    }
+    //}
 
 
 

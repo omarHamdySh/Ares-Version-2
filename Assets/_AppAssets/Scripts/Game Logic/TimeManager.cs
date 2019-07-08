@@ -5,11 +5,11 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class GameTime:ICloneable
+public class GameTime : ICloneable
 {
-    [HideInInspector]
+    [SerializeField]
     public int gameHour;
-    [HideInInspector]
+    [SerializeField]
     public int gameDay;
     [SerializeField]
     public float realSecond;
@@ -40,7 +40,7 @@ public class GameTime:ICloneable
         this.gameHour = gameHour;
         this.gameDay = gameDay;
     }
-    public GameTime(int gameHour, int gameDay, float realSecond, float realMinute, float realHour):this(gameHour, gameDay)
+    public GameTime(int gameHour, int gameDay, float realSecond, float realMinute, float realHour) : this(gameHour, gameDay)
     {
         this.realSecond = realSecond;
         this.realMinute = realMinute;
@@ -53,21 +53,21 @@ public class GameTime:ICloneable
         {
             realSecond += Time.deltaTime;
             calculateTime();
-
-            if (Mathf.FloorToInt(realSecond)!=secondTemp)
+            var realSecondInt = Mathf.FloorToInt(realSecond);
+            if (realSecondInt != secondTemp)
             {
                 //if (GameBrain.Instance.testing)
                 //{
                 //    Debug.Log(Mathf.FloorToInt(realSecond));
                 //}
-                secondTemp = Mathf.FloorToInt(realSecond);
                 OnSecondChange();
+                secondTemp = realSecondInt;
 
             }
 
             if (realMinute != minuteTemp)
             {
-                secondTemp = Mathf.RoundToInt(realMinute);
+                minuteTemp = Mathf.RoundToInt(realMinute);
                 OnMinuteChange();
                 //if (GameBrain.Instance.testing)
                 //{
@@ -134,10 +134,11 @@ public class GameTime:ICloneable
 
     public object Clone()
     {
-        return new GameTime(this.gameHour,this.gameDay,this.realSecond,this.realMinute,this.realHour);
+        return new GameTime(this.gameHour, this.gameDay, this.realSecond, this.realMinute, this.realHour);
     }
     #region Arithmetic Operators Override;
-    public static GameTime operator +(GameTime gameTime1, GameTime gameTime2) {
+    public static GameTime operator +(GameTime gameTime1, GameTime gameTime2)
+    {
         GameTime Sum = new GameTime();
         Sum.gameDay = gameTime1.gameDay + gameTime2.gameDay;
         Sum.gameHour = gameTime1.gameHour + gameTime2.gameHour;
@@ -154,7 +155,7 @@ public class GameTime:ICloneable
     #region Logical Operators Override;
     public static bool operator ==(GameTime gameTime1, GameTime gameTime2)
     {
-        if (gameTime1.realMinute== gameTime2.realMinute)
+        if (gameTime1.realMinute == gameTime2.realMinute)
         {
             return true;
         }
@@ -176,9 +177,10 @@ public class GameTime:ICloneable
 
         }
     }
-    public static bool operator >(GameTime gameTime1, GameTime gameTime2) {
-        bool state=false;
-        if (gameTime1.gameDay>gameTime2.gameDay)
+    public static bool operator >(GameTime gameTime1, GameTime gameTime2)
+    {
+        bool state = false;
+        if (gameTime1.gameDay > gameTime2.gameDay)
         {
             state = true;
         }
@@ -201,8 +203,9 @@ public class GameTime:ICloneable
         }
         return state;
     }
-    public static bool operator >=(GameTime gameTime1, GameTime gameTime2) {
-        bool state=false;
+    public static bool operator >=(GameTime gameTime1, GameTime gameTime2)
+    {
+        bool state = false;
         if (gameTime1.gameDay >= gameTime2.gameDay)
         {
             state = true;

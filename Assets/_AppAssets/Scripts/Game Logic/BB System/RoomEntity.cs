@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomEntity : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class RoomEntity : MonoBehaviour
     public productionJobType productionJobType;
     public CapsuleProcessesData DebuggingUI;
     public int NumOfCharInRoom;
+
+
+    //----------------------------------------------------
+    public GameObject gemButton;
+
     public void Start()
     {
         roomGameObject = this.gameObject.transform.parent.gameObject;
@@ -54,6 +60,23 @@ public class RoomEntity : MonoBehaviour
     {
         NumOfCharInRoom--;
         PlayerPrefs.SetInt(transform.parent.name + " CharNum", NumOfCharInRoom);
+    }
+
+    /// <summary>
+    /// You suppose to use a method called "addResourceLoad" in the room class in order to add the new resources load to the current value.
+    /// </summary>
+    public void showGemUI() {
+        if (gemButton != null)
+        {
+            gemButton.gameObject.SetActive(true);
+        }
+        
+    }
+
+    public void collectGem() {
+
+        LevelManager.Instance.roomManager.getRoomWithGameObject(roomGameObject).addResourceLoad();
+        gemButton.gameObject.SetActive(false);
     }
 
 }
