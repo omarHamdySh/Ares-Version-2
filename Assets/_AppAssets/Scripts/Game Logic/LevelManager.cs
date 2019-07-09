@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         /** Order of methods calling is critical**/
         Init();
         calculateRoomsBounds();
-        CreateCharForStaticRooms();
+        //CreateCharForStaticRooms();
 
         if (_Instance == null)
         {
@@ -68,14 +68,15 @@ public class LevelManager : MonoBehaviour
         foreach (KeyValuePair<Room, Bounds> entry in roomManager.roomsBounds)
         {
             var id = entry.Key.roomGameObject.name;
+            if (!PlayerPrefs.HasKey(id + " CharNum"))
+            {
+                PlayerPrefs.SetInt(id + " CharNum", 0);
+            }
 
             int num = PlayerPrefs.GetInt(id + " CharNum");
-
-            PlayerPrefs.SetInt(id + " CharNum", 0);
-
             for (int i = 0; i < num; i++)
             {
-                CreateChar(entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>());
+                 CreateChar(entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>(), entry.Key);
             }
             entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>().IsFirstTime = false;
         }
@@ -83,10 +84,10 @@ public class LevelManager : MonoBehaviour
 
     public void CreateNewChar()
     {
-        CreateChar(hippernationRoom.gameObject.GetComponentInChildren<RoomEntity>());
+        //CreateChar(hippernationRoom.gameObject.GetComponentInChildren<RoomEntity>());
     }
 
-    public void CreateChar(RoomEntity roomEntity)
+    public void CreateChar(RoomEntity roomEntity,Room room)
     {
         Character character;
         Vector3 pos = new Vector3(hippernationRoom.position.x, hippernationRoom.position.y, charPrefab.transform.position.z);
@@ -96,13 +97,15 @@ public class LevelManager : MonoBehaviour
         charindex++;
         print(characterGameObject.name + "  " + roomEntity.transform.parent.name);
 
+        if (room.searchForFreeJob())
+        {
+            roomManager.getRoomWithGameObject(roomEntity.roomGameObject).getRandomVacantJob(character);
+        }
+
         if (roomEntity.transform.parent.name.Equals("HibernationRoom"))
         {
             characterGameObject.GetComponent<CharacterEntity>().character.containerEntrance = roomEntity.leftEntrance;
-            if (roomManager.getRoomWithGameObject(roomEntity.roomGameObject).searchForFreeJob())
-            {
-                roomManager.getRoomWithGameObject(roomEntity.roomGameObject).getRandomVacantJob(character);
-            }
+
         }
 
         Slot s = roomEntity.mySlot;

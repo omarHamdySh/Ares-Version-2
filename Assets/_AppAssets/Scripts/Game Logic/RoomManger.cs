@@ -45,9 +45,22 @@ public class RoomManger : MonoBehaviour
     {
         foreach (var room in rooms)
         {
-            if (room.roomGameObject == obj)
+            if (room== obj)
             {
                 return room;
+            }
+        }
+        return null;
+    }
+    public Room getRoomWithGameObjectFromRoomBounds(GameObject roomGameObject)
+    {
+        //LevelManager.Instance.roomManager.getRoomWithGameObject(drag)
+        foreach (KeyValuePair<Room, Bounds> entry in roomsBounds)
+        {
+
+            if (entry.Key== roomGameObject)
+            {
+                return entry.Key;
             }
         }
         return null;

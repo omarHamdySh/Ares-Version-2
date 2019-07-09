@@ -285,8 +285,15 @@ public class CharacterEntity : MonoBehaviour
     {
         if (character.job != null)
         {
-            print(gameObject.name);
-            JobPathFinder pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
+            JobPathFinder pathFinder;
+            if (roomEntity.transform.parent.name.Equals("HibernationRoom"))
+            {
+                pathFinder = RoomEntity.getInnerPathToRestPoints(character.job, character, roomEntity.jobPathFinders);
+            }
+            else
+            {
+                pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
+            }
             pathFinder.isReversed = isReversed;
             pathFinder.isFollowingPath = true;
             characterAnimationFSM.changeAnimationStateTo(CharacterAnimationsState.Walking);

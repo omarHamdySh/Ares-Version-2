@@ -51,6 +51,19 @@ public class RoomEntity : MonoBehaviour
         return null;
     }
 
+    public static JobPathFinder getInnerPathToRestPoints(Job job, Character character, JobPathFinder[] jobPathFinders)
+    {
+
+        foreach (var jobPathFinder in jobPathFinders)
+        {
+            if (character.containerEntrance == jobPathFinder.entrancePos)
+            {
+                return jobPathFinder;
+            }
+        }
+        return null;
+    }
+
     public void AddCharCountToRoom()
     {
         NumOfCharInRoom++;
