@@ -162,22 +162,22 @@ public class RoomManger : MonoBehaviour
 
     private static void handleRoomLights(GameObject roomGameObject)
     {
-        var lightsList = roomGameObject.GetComponentInChildren<RoomEntity>().lights;
-        bool isSomeBodyThere = false;
-        foreach (var job in roomGameObject.GetComponentInChildren<JobEntity>().roomJobs)
-        {
-            if (job.jobState == JobState.Occupied && job.jobHolder != null)
-            {
-                isSomeBodyThere = true;
-            }
-        }
-        if (!isSomeBodyThere)
-        {
-            foreach (var light in lightsList)
-            {
-                light.SetActive(false);
-            }
-        }
+        //var lightsList = roomGameObject.GetComponentInChildren<RoomEntity>().lights;
+        //bool isSomeBodyThere = false;
+        //foreach (var job in roomGameObject.GetComponentInChildren<JobEntity>().roomJobs)
+        //{
+        //    if (job.jobState == JobState.Occupied && job.jobHolder != null)
+        //    {
+        //        isSomeBodyThere = true;
+        //    }
+        //}
+        //if (!isSomeBodyThere)
+        //{
+        //    foreach (var light in lightsList)
+        //    {
+        //        light.SetActive(false);
+        //    }
+        //}
     }
     #endregion
 

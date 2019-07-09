@@ -25,11 +25,11 @@ public class Dragable_Item : MonoBehaviour
 
     private void Update()
     {
-        distance = (LevelManager.Instance.Environment.transform.position - Camera.main.transform.position).magnitude;
+        distance = (transform.position - Camera.main.transform.position).magnitude+((Camera.main.fieldOfView/10)/ (transform.position - Camera.main.transform.position).magnitude);
 
         MaximizeToIncludeHollowAndCharacter();
     }
-
+    int expansionLimit = 0;
     private void MaximizeToIncludeHollowAndCharacter()
     {
         if (isDragable)
@@ -39,19 +39,20 @@ public class Dragable_Item : MonoBehaviour
             Vector3 screenPoint = Camera.main.WorldToViewportPoint(hollow.GetComponent<Renderer>().bounds.center);
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-            if (!onScreen)
+            if (!onScreen && expansionLimit<400)
             {
-                Vector3 moveTowards = Vector3.MoveTowards(Camera.main.transform.position, Camera.main.transform.TransformPoint(new Vector3(viewPos.x, viewPos.y, 0)), 2);
+                Vector3 moveTowards = Vector3.MoveTowards(Camera.main.transform.position, Camera.main.transform.TransformPoint(new Vector3(viewPos.x, viewPos.y, 0)), 0.05f);
                 moveTowards.z = Camera.main.transform.position.z;
                 Camera.main.transform.position = moveTowards;
+                expansionLimit++;
             }
 
-            float fieldOFView = (transform.position - hollow.transform.position).magnitude + (
-                (GetComponent<Renderer>().bounds.size.x + GetComponent<Renderer>().bounds.size.y) / 2) +
-                ((hollow.GetComponent<Renderer>().bounds.size.x + hollow.GetComponent<Renderer>().bounds.size.y) / 2);
+            //float fieldOFView = (transform.position - hollow.transform.position).magnitude/2 + (
+            //    (GetComponent<Renderer>().bounds.size.x + GetComponent<Renderer>().bounds.size.y) / 2) +
+            //    ((hollow.GetComponent<Renderer>().bounds.size.x + hollow.GetComponent<Renderer>().bounds.size.y) / 2);
 
-            Camera.main.fieldOfView = fieldOFView > Camera.main.fieldOfView ?
-                    fieldOFView : Camera.main.fieldOfView;
+            //Camera.main.fieldOfView = fieldOFView > Camera.main.fieldOfView ?
+            //        fieldOFView : Camera.main.fieldOfView;
 
         }
     }
@@ -120,7 +121,7 @@ public class Dragable_Item : MonoBehaviour
     /// </summary>
     private void OnMouseUp()
     {
-
+        expansionLimit = 0;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         {

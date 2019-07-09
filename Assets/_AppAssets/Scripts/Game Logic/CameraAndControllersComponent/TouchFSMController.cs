@@ -9,7 +9,6 @@ public class TouchFSMController : MonoBehaviour
     public float perspectiveZoomSpeed;        // The rate of change of the field of view in perspective mode.
     public float orthoZoomSpeed = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
     public float distanceFromBoundry = 5;
-    public Camera camera;
 
     Vector2 touchStartPos;
     Vector2 direction;
@@ -36,26 +35,32 @@ public class TouchFSMController : MonoBehaviour
     public bool isDraggingCharacter;
     public void Start()
     {
-        camera = Camera.main;
+
     }
 
     #region Clamping the Camera Swap and Zoom to the map boundries
 
     private void ClampCameraPositionAndZoom()
     {
-        float yAxisBoundry = Mathf.Clamp(camera.transform.position.y, LevelManager.Instance.BottomBoundry.position.y,
-            LevelManager.Instance.TopBoundry.position.y);
-        float xAxisBoundry = Mathf.Clamp(camera.transform.position.x,
-             LevelManager.Instance.LeftBoundry.position.x, LevelManager.Instance.RightBoundry.position.x);
-        float zAxisBoundry = Mathf.Clamp(camera.transform.position.z,
-              LevelManager.Instance.FrontBoundry.position.z, LevelManager.Instance.BackBoundry.position.z);
-        camera.transform.position = new Vector3(xAxisBoundry, yAxisBoundry, zAxisBoundry);
-        swapeSpeed = Mathf.Clamp(swapeSpeed, 1, 6);
-        // Clamp the field of view to make sure it's between 0 and 180.
-        camera.fieldOfView = Mathf.Clamp(camera.fieldOfView,
-            minFOV,
-            maxFOV
-            );
+        try
+        {
+            float yAxisBoundry = Mathf.Clamp(Camera.main.transform.position.y, LevelManager.Instance.BottomBoundry.position.y,
+                LevelManager.Instance.TopBoundry.position.y);
+            float xAxisBoundry = Mathf.Clamp(Camera.main.transform.position.x,
+                 LevelManager.Instance.LeftBoundry.position.x, LevelManager.Instance.RightBoundry.position.x);
+            float zAxisBoundry = Mathf.Clamp(Camera.main.transform.position.z,
+                  LevelManager.Instance.FrontBoundry.position.z, LevelManager.Instance.BackBoundry.position.z);
+            Camera.main.transform.position = new Vector3(xAxisBoundry, yAxisBoundry, zAxisBoundry);
+            swapeSpeed = Mathf.Clamp(swapeSpeed, 1, 6);
+            // Clamp the field of view to make sure it's between 0 and 180.
+            Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView,
+                minFOV,
+                maxFOV
+                );
+        }
+        catch (Exception e) {
+
+        }
     }
 
     #endregion
@@ -106,14 +111,14 @@ public class TouchFSMController : MonoBehaviour
     {
         if (tryOld)
         {
-            camera.transform.position += new Vector3(-touchPosX, touchPosY, 0) * swapeSpeed;
+            Camera.main.transform.position += new Vector3(-touchPosX, touchPosY, 0) * swapeSpeed;
         }
         else
         {
-            Vector3 moveTowards = Vector3.MoveTowards(camera.transform.position, (camera.transform.TransformPoint(new Vector3(-mousePosX * swapeSpeed/2, -mousePosY * swapeSpeed/2, 0))), 2);
-            moveTowards.z = camera.transform.position.z;
+            Vector3 moveTowards = Vector3.MoveTowards(Camera.main.transform.position, (Camera.main.transform.TransformPoint(new Vector3(-mousePosX * swapeSpeed/2, -mousePosY * swapeSpeed/2, 0))), 2);
+            moveTowards.z = Camera.main.transform.position.z;
 
-            camera.transform.position = Vector3.Slerp(moveTowards, camera.transform.position, 0.8f);
+            Camera.main.transform.position = Vector3.Slerp(moveTowards, Camera.main.transform.position, 0.8f);
         }
         //camera.transform.Translate(new Vector3(posX, posY, 0).normalized * swapeSpeed);
     }
@@ -202,9 +207,9 @@ public class TouchFSMController : MonoBehaviour
     {
         //Otherwise change the field of view based on the change in distance between the touches.
         // camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed*Time.deltaTime;
-        Vector3 zoomVector = camera.transform.position;
-        zoomVector.z = camera.transform.position.z - deltaMagnitudeDiff;
-        camera.transform.position = Vector3.Lerp(zoomVector, camera.transform.position, 0.5f);
+        Vector3 zoomVector = Camera.main.transform.position;
+        zoomVector.z = Camera.main.transform.position.z - deltaMagnitudeDiff;
+        Camera.main.transform.position = Vector3.Lerp(zoomVector, Camera.main.transform.position, 0.5f);
         swapeSpeed += deltaMagnitudeDiff / 8;
     }
 
@@ -212,9 +217,9 @@ public class TouchFSMController : MonoBehaviour
     {
         //Otherwise change the field of view based on the change in distance between the touches.
         // camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed*Time.deltaTime;
-        Vector3 zoomVector = camera.transform.position;
-        zoomVector.z = camera.transform.position.z - deltaMagnitudeDiff;
-        camera.transform.position = Vector3.Lerp(zoomVector, camera.transform.position, 0.5f);
+        Vector3 zoomVector = Camera.main.transform.position;
+        zoomVector.z = Camera.main.transform.position.z - deltaMagnitudeDiff;
+        Camera.main.transform.position = Vector3.Lerp(zoomVector, Camera.main.transform.position, 0.5f);
         swapeSpeed += deltaMagnitudeDiff / 12;
     }
 
@@ -330,8 +335,8 @@ public class TouchFSMController : MonoBehaviour
                 bounds = LevelManager.Instance.roomManager.roomsBounds[Room];
             }
         }
-        camera.transform.position = new Vector3(bounds.center.x, bounds.center.y, camera.transform.position.z);
-        while ((camera.transform.position.z < LevelManager.Instance.BackBoundry.position.z))
+        Camera.main.transform.position = new Vector3(bounds.center.x, bounds.center.y, Camera.main.transform.position.z);
+        while ((Camera.main.transform.position.z < LevelManager.Instance.BackBoundry.position.z))
         {
             zoomIn(-0.2f);
         }
@@ -354,8 +359,8 @@ public class TouchFSMController : MonoBehaviour
         {//if the character is not inside a room bounds
             bounds = character.GetComponent<Collider>().bounds;
         }
-        camera.transform.position = new Vector3(bounds.center.x, bounds.center.y, camera.transform.position.z);
-        while ((camera.transform.position.z < LevelManager.Instance.BackBoundry.position.z))
+        Camera.main.transform.position = new Vector3(bounds.center.x, bounds.center.y, Camera.main.transform.position.z);
+        while ((Camera.main.transform.position.z < LevelManager.Instance.BackBoundry.position.z))
         {
             zoomIn(-0.2f);
         }
@@ -409,14 +414,14 @@ public class TouchFSMController : MonoBehaviour
     {
         if (tryOld)
         {
-            camera.transform.position += new Vector3(-touchPosX, touchPosY, 0) * swapeSpeed;
+            Camera.main.transform.position += new Vector3(-touchPosX, touchPosY, 0) * swapeSpeed;
         }
         else
         {
-            Vector3 moveTowards = Vector3.MoveTowards(camera.transform.position, (camera.transform.TransformPoint(new Vector3(-touchPosX * swapeSpeed, -touchPosY * swapeSpeed, 0))), 2);
-            moveTowards.z = camera.transform.position.z;
+            Vector3 moveTowards = Vector3.MoveTowards(Camera.main.transform.position, (Camera.main.transform.TransformPoint(new Vector3(-touchPosX * swapeSpeed, -touchPosY * swapeSpeed, 0))), 2);
+            moveTowards.z = Camera.main.transform.position.z;
 
-            camera.transform.position = Vector3.Slerp(moveTowards, camera.transform.position, 0.8f);
+            Camera.main.transform.position = Vector3.Slerp(moveTowards, Camera.main.transform.position, 0.8f);
         }
         //camera.transform.Translate(new Vector3(posX, posY, 0).normalized * swapeSpeed);
     }

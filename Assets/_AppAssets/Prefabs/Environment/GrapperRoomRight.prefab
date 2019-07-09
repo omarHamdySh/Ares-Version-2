@@ -1310,6 +1310,7 @@ MonoBehaviour:
   productionJobType: 0
   DebuggingUI: {fileID: 886071330590026846}
   NumOfCharInRoom: 0
+  IsFirstTime: 1
   gemButton: {fileID: 3072827076958420549}
   lights:
   - {fileID: 344829124741149877}
@@ -1443,7 +1444,7 @@ MonoBehaviour:
     jobAcquisionHour: 0
     jobPosition: {fileID: 0}
     jobFacingDirection: 1
-  - jobName: Blumber
+  - jobName: No Job
     jobAnimation: 5
     jobAnimationClip: {fileID: 0}
     jobHolder:
