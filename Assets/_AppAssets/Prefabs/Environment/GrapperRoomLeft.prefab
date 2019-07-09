@@ -2460,7 +2460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421481484081149696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.141794, y: 0, z: 0}
+  m_LocalPosition: {x: -1.066, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 6651490803125691765}
@@ -5050,11 +5050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8143457082507500347}
     m_Modifications:
-    - target: {fileID: 7062327284714466197, guid: 67b438db6f249774bafef34c27466cc2,
-        type: 3}
-      propertyPath: m_Name
-      value: CapsuleBody
-      objectReference: {fileID: 0}
     - target: {fileID: 7062327284714436533, guid: 67b438db6f249774bafef34c27466cc2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5110,6 +5105,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7062327284714466197, guid: 67b438db6f249774bafef34c27466cc2,
+        type: 3}
+      propertyPath: m_Name
+      value: CapsuleBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062327284714466193, guid: 67b438db6f249774bafef34c27466cc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062327284714466199, guid: 67b438db6f249774bafef34c27466cc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7062327284728668947, guid: 67b438db6f249774bafef34c27466cc2,
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
@@ -5119,16 +5129,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
       value: 0.67236507
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062327284714466199, guid: 67b438db6f249774bafef34c27466cc2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7062327284714466193, guid: 67b438db6f249774bafef34c27466cc2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b438db6f249774bafef34c27466cc2, type: 3}

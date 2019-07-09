@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     public Transform FrontBoundry;
     public Transform BackBoundry;
     #endregion
+    int charindex = 0;
 
     public static LevelManager Instance
     {
@@ -38,7 +39,7 @@ public class LevelManager : MonoBehaviour
         /** Order of methods calling is critical**/
         Init();
         calculateRoomsBounds();
-
+        CreateCharForStaticRooms();
 
         if (_Instance == null)
         {
@@ -51,7 +52,7 @@ public class LevelManager : MonoBehaviour
     {
         //asdfasdfasdfadsf
         //Debug.Log((roomsBounds[Environment.transform.GetChild(0).gameObject].size.x + roomsBounds[Environment.transform.GetChild(0).gameObject].size.y) / 2 - 2.5f);
-        CreateCharForStaticRooms();
+        //
     }
 
     private void Init()
@@ -62,7 +63,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void CreateCharForStaticRooms()
+    public void CreateCharForStaticRooms()
     {
         foreach (KeyValuePair<Room, Bounds> entry in roomManager.roomsBounds)
         {
@@ -76,6 +77,7 @@ public class LevelManager : MonoBehaviour
             {
                 CreateChar(entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>());
             }
+            entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>().IsFirstTime = false;
         }
     }
 
@@ -86,18 +88,31 @@ public class LevelManager : MonoBehaviour
 
     public void CreateChar(RoomEntity roomEntity)
     {
-        //Vector3 pos = new Vector3(hippernationRoom.position.x, hippernationRoom.position.y, charPrefab.transform.position.z);
-        //GameObject character = Instantiate(charPrefab, pos, Quaternion.identity) as GameObject;
-        //characterManager.addNewCharacter(character.GetComponent<CharacterEntity>().character);
+        Character character;
+        Vector3 pos = new Vector3(hippernationRoom.position.x, hippernationRoom.position.y, charPrefab.transform.position.z);
+        GameObject characterGameObject = Instantiate(charPrefab, pos, Quaternion.identity) as GameObject;
+        characterManager.addNewCharacter(character = characterGameObject.GetComponent<CharacterEntity>().character);
+        characterGameObject.name = charindex.ToString();
+        charindex++;
+        print(characterGameObject.name + "  " + roomEntity.transform.parent.name);
 
-        //Slot s = roomEntity.mySlot;
-        //character.GetComponent<CharController>().GenerateFollowPathWayPoins(
-        //    s.MySlotManger.transform.GetSiblingIndex(),
-        //    s.MyDir,
-        //    s.transform.GetSiblingIndex(),
-        //    roomEntity
-        //    );
-        ////character.GetComponent<CharController>().MoveInPath();
+        if (roomEntity.transform.parent.name.Equals("HibernationRoom"))
+        {
+            characterGameObject.GetComponent<CharacterEntity>().character.containerEntrance = roomEntity.leftEntrance;
+            if (roomManager.getRoomWithGameObject(roomEntity.roomGameObject).searchForFreeJob())
+            {
+                roomManager.getRoomWithGameObject(roomEntity.roomGameObject).getRandomVacantJob(character);
+            }
+        }
+
+        Slot s = roomEntity.mySlot;
+        characterGameObject.GetComponent<CharController>().GenerateFollowPathWayPoins(
+            s.MySlotManger.transform.GetSiblingIndex(),
+            s.MyDir,
+            s.transform.GetSiblingIndex(),
+            roomEntity
+            );
+        characterGameObject.GetComponent<CharController>().MoveInPath();
     }
 
     private void OnDrawGizmos()

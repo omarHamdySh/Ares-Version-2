@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void BackToMainMenu()
     {
-        StartCoroutine(LoadAsynchronously("MainMenu"));
+        StartCoroutine(LoadAsynchronously(0));
     }
 
     /// <summary>
@@ -31,19 +31,19 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void RestartLevel()
     {
-        StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));
+        StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
     }
 
     /// <summary>
     /// Moving from scene to another
     /// </summary>
-    /// <param name="sceneName">name of the scene you will go to</param>
-    public void LoadLevel(string sceneName)
+    /// <param name="sceneNum">name of the scene you will go to</param>
+    public void LoadLevel(int sceneNum)
     {
-        StartCoroutine(LoadAsynchronously(sceneName));
+        StartCoroutine(LoadAsynchronously(sceneNum));
     }
 
-    private IEnumerator LoadAsynchronously(string sceneName)
+    private IEnumerator LoadAsynchronously(int sceneName)
     {
         yield return new WaitForSeconds(1f);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);

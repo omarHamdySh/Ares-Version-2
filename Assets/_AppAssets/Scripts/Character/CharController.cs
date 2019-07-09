@@ -44,7 +44,7 @@ public class CharController : MonoBehaviour
 
     private Rigidbody myRB;
     private bool isMovePath;
-    [SerializeField] private int pathIndex;
+    [SerializeField] private int pathIndex = 0;
     private Vector2 curPos;
     private CharacterAnimationFSM cAnimFSM;
     private SlotDir entranceDir;
@@ -70,10 +70,7 @@ public class CharController : MonoBehaviour
                 {
                     isMovePath = false;
                     GetComponent<Dragable_Item>().containerRoom = LevelManager.Instance.roomManager.populateAndGetContainerRoom(this.gameObject);
-                    if (!GetComponent<Dragable_Item>().containerRoom.name.Equals("TrainningRoom"))
-                    {
-                        GetComponent<Dragable_Item>().containerRoom.GetComponentInChildren<RoomEntity>().AddCharCountToRoom();
-                    }
+                    GetComponent<Dragable_Item>().containerRoom.GetComponentInChildren<RoomEntity>().AddCharCountToRoom();
                     GetComponent<CharacterEntity>().OnPathFollowingEnd(entranceDir);
                     return;
                 }
