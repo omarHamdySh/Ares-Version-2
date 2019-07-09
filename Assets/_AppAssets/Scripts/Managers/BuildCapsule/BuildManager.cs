@@ -53,6 +53,7 @@ public class BuildManager : MonoBehaviour
                     buildPrefabs[index]);
             }
         }
+        LevelManager.Instance.CreateCharForStaticRooms();
     }
 
     void Update()

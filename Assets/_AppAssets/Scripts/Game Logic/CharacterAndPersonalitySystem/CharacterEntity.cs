@@ -279,13 +279,13 @@ public class CharacterEntity : MonoBehaviour
 
         character.characterGameObject.transform.position += (Vector3.up * -0.6f);
         followRoomInnerPath(roomEntity, false);
-
     }
 
     public void followRoomInnerPath(RoomEntity roomEntity, bool isReversed)
     {
         if (character.job != null)
         {
+            print(gameObject.name);
             JobPathFinder pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
             pathFinder.isReversed = isReversed;
             pathFinder.isFollowingPath = true;
@@ -398,7 +398,7 @@ public class CharacterEntity : MonoBehaviour
         bool isSomeBodyThere = false;
         foreach (var job in roomEntity.GetComponentInChildren<JobEntity>().roomJobs)
         {
-            if (job.jobState ==JobState.Occupied && job.jobHolder!=null)
+            if (job.jobState == JobState.Occupied && job.jobHolder != null)
             {
                 isSomeBodyThere = true;
             }

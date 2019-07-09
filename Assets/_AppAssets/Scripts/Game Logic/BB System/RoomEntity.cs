@@ -13,6 +13,7 @@ public class RoomEntity : MonoBehaviour
     public productionJobType productionJobType;
     public CapsuleProcessesData DebuggingUI;
     public int NumOfCharInRoom;
+    public bool IsFirstTime = true;
 
     //----------------------------------------------------
     public GameObject gemButton;
@@ -36,7 +37,7 @@ public class RoomEntity : MonoBehaviour
     /// <param name="job"></param>
     /// <param name="entrance"></param>
     /// <returns></returns>
-    public static JobPathFinder getJobPathObject(Job job,Character character, JobPathFinder[] jobPathFinders)
+    public static JobPathFinder getJobPathObject(Job job, Character character, JobPathFinder[] jobPathFinders)
     {
 
         foreach (var jobPathFinder in jobPathFinders)
@@ -53,7 +54,10 @@ public class RoomEntity : MonoBehaviour
     public void AddCharCountToRoom()
     {
         NumOfCharInRoom++;
-        PlayerPrefs.SetInt(transform.parent.name + " CharNum", NumOfCharInRoom);
+        if (!IsFirstTime)
+        {
+            PlayerPrefs.SetInt(transform.parent.name + " CharNum", NumOfCharInRoom);
+        }
     }
 
     public void SubCharCountToRoom()
@@ -65,15 +69,17 @@ public class RoomEntity : MonoBehaviour
     /// <summary>
     /// You suppose to use a method called "addResourceLoad" in the room class in order to add the new resources load to the current value.
     /// </summary>
-    public void showGemUI() {
+    public void showGemUI()
+    {
         if (gemButton != null)
         {
             gemButton.gameObject.SetActive(true);
         }
-        
+
     }
 
-    public void collectGem() {
+    public void collectGem()
+    {
 
         LevelManager.Instance.roomManager.getRoomWithGameObject(roomGameObject).addResourceLoad();
         gemButton.gameObject.SetActive(false);

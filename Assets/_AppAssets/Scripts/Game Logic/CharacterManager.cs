@@ -80,7 +80,6 @@ public class CharacterManager : MonoBehaviour
     {
         characters.Add(character);
         character.Init();
-        Init();
     }
 
     #region Time related methods
