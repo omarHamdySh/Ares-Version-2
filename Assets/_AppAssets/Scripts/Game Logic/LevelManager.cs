@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     public ClickStateMachine controllersStateMachine;
 
     [SerializeField] private GameObject charPrefab;
-    [SerializeField] private Transform hippernationRoom;
+    public Transform hippernationRoom;
     public bool Testing;
     public GameObject FPSGraphTools;
     #region Map Boundries
@@ -69,13 +69,18 @@ public class LevelManager : MonoBehaviour
         {
             var id = entry.Key.roomGameObject.name;
 
-            int num = PlayerPrefs.GetInt(id + " CharNum");
+            if (!PlayerPrefs.HasKey(id + " CharNum"))
+            {
+                PlayerPrefs.SetInt(id + " CharNum", 0);
+            }
 
-            PlayerPrefs.SetInt(id + " CharNum", 0);
+            int num = PlayerPrefs.GetInt(id + " CharNum");
 
             for (int i = 0; i < num; i++)
             {
-                CreateChar(entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>());
+                var roomEntity = entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>();
+                roomEntity.roomGameObject = entry.Key.roomGameObject;
+                CreateChar(roomEntity);
             }
             entry.Key.roomGameObject.GetComponentInChildren<RoomEntity>().IsFirstTime = false;
         }
@@ -88,31 +93,61 @@ public class LevelManager : MonoBehaviour
 
     public void CreateChar(RoomEntity roomEntity)
     {
+        // Declare character
         Character character;
+
+        // Create Instantiation Pos for the new character before creation time
         Vector3 pos = new Vector3(hippernationRoom.position.x, hippernationRoom.position.y, charPrefab.transform.position.z);
+
+        // Instantiate the Character.
         GameObject characterGameObject = Instantiate(charPrefab, pos, Quaternion.identity) as GameObject;
+
+        // Add the physical character reference to the logical character
         characterManager.addNewCharacter(character = characterGameObject.GetComponent<CharacterEntity>().character);
+
+        // Naming the character at the creation time
         characterGameObject.name = charindex.ToString();
-        charindex++;
-        print(characterGameObject.name + "  " + roomEntity.transform.parent.name);
+
+        charindex++; // used in the naming process to increement the name value
+
+        //print(characterGameObject.name + "  " + roomEntity.transform.parent.name);
+
 
         if (roomEntity.transform.parent.name.Equals("HibernationRoom"))
         {
+            //If the contianer room of the character is hibernation room determine the entrance statically to the bottom entrance
             characterGameObject.GetComponent<CharacterEntity>().character.containerEntrance = roomEntity.leftEntrance;
-            if (roomManager.getRoomWithGameObject(roomEntity.roomGameObject).searchForFreeJob())
-            {
-                roomManager.getRoomWithGameObject(roomEntity.roomGameObject).getRandomVacantJob(character);
-            }
         }
 
-        Slot s = roomEntity.mySlot;
-        characterGameObject.GetComponent<CharController>().GenerateFollowPathWayPoins(
-            s.MySlotManger.transform.GetSiblingIndex(),
-            s.MyDir,
-            s.transform.GetSiblingIndex(),
-            roomEntity
-            );
-        characterGameObject.GetComponent<CharController>().MoveInPath();
+        //// Search for a free job in the intended room
+        //if (roomManager.getRoomWithGameObject(roomEntity.roomGameObject).searchForFreeJob())
+        //{// Get one of the free jobs
+        //    roomManager.getRoomWithGameObject(roomEntity.roomGameObject).getRandomVacantJob(character);
+        //}
+
+        //The next line of code is critical just give it a deep look before changing it.
+        // Double check that the contianerRoom reference inside the character instance is not equal to null;
+        //character.container = character.job.jobRoom;
+
+
+        moveCharacterManuallyToRoom(roomEntity, character, characterGameObject);
+
+    }
+
+    public void moveCharacterManuallyToRoom(RoomEntity roomEntity, Character character, GameObject characterGameObject)
+    {
+        character.container = roomEntity.roomGameObject;
+        if (character.container != null)
+        {
+            Slot s = roomEntity.mySlot;
+            characterGameObject.GetComponent<CharController>().GenerateFollowPathWayPoins(
+                s.MySlotManger.transform.GetSiblingIndex(),
+                s.MyDir,
+                s.transform.GetSiblingIndex(),
+                roomEntity
+                );
+            characterGameObject.GetComponent<CharController>().MoveInPath();
+        }
     }
 
     private void OnDrawGizmos()

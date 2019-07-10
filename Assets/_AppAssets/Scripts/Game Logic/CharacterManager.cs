@@ -79,7 +79,9 @@ public class CharacterManager : MonoBehaviour
     public void addNewCharacter(Character character)
     {
         characters.Add(character);
-        character.Init();
+        character.InitOnRetrieveData();
+
+        //character.Init();
     }
 
     #region Time related methods

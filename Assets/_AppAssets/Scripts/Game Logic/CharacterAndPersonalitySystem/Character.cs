@@ -35,7 +35,6 @@ public class Character
     //-------------------------------------------
     public GameObject container;
     public GameObject containerEntrance;
-    [HideInInspector]
     public Room containerRoom;
 
 
@@ -52,13 +51,21 @@ public class Character
         this.characterGameObject = characterGameObject;
     }
 
+    public void InitOnRetrieveData()
+    {
+        jobState = CharacterJobState.Unemployed;
+        //container = LevelManager.Instance.roomManager.populateAndGetContainerRoom(characterGameObject);
+        //characterGameObject.GetComponent<Dragable_Item>().containerRoom = container;
+        //containerRoom = LevelManager.Instance.roomManager.getRoomWithGameObject(container);
+
+    }
     public void Init()
     {
         jobState = CharacterJobState.Unemployed;
         container = LevelManager.Instance.roomManager.populateAndGetContainerRoom(characterGameObject);
         characterGameObject.GetComponent<Dragable_Item>().containerRoom = container;
         containerRoom = LevelManager.Instance.roomManager.getRoomWithGameObject(container);
-        characterLevel.totalLevelDaysWorkedHours[GameBrain.Instance.timeManager.gameTime.gameDay] = new GameTime();
+        //characterLevel.totalLevelDaysWorkedHours[GameBrain.Instance.timeManager.gameTime.gameDay] = new GameTime();
     }
 
     #endregion
@@ -69,6 +76,7 @@ public class Character
 
     public void updateStamina()
     {//Called over time
+
         bool isOneOrBothJobsOccupied = false;
         isOneOrBothJobsOccupied = checkForJobsStates(isOneOrBothJobsOccupied);
         if (isOneOrBothJobsOccupied)
@@ -84,6 +92,12 @@ public class Character
             {
                 stamina -= job.staminaReductionRate;
                 stamina = Mathf.Clamp(stamina, 0, 10);
+                //if (stamina == 0)
+                //{
+                //    LevelManager.Instance.moveCharacterManuallyToRoom(
+                //        LevelManager.Instance.hippernationRoom.GetComponentInChildren<RoomEntity>()
+                //        , this, characterGameObject);
+                //}
             }
         }
         else
@@ -95,18 +109,26 @@ public class Character
 
     private bool checkForJobsStates(bool isOneOrBothJobsOccupied)
     {
-        isOneOrBothJobsOccupied = true;
-        int activatedVacantJobs = 0;
-        foreach (var job in containerRoom.roomJobs)
+        Room r = null;
+        if (containerRoom== r)
         {
-            if (job.jobState == JobState.Vacant)
-            {
-                activatedVacantJobs++;
-            }
+            return isOneOrBothJobsOccupied;
         }
-        if (activatedVacantJobs > 0)
+        if (LevelManager.Instance.hippernationRoom.gameObject != containerRoom.roomGameObject)
         {
-            isOneOrBothJobsOccupied = false;
+            isOneOrBothJobsOccupied = true;
+            int activatedVacantJobs = 0;
+            foreach (var job in containerRoom.roomJobs)
+            {
+                if (job.jobState == JobState.Vacant)
+                {
+                    activatedVacantJobs++;
+                }
+            }
+            if (activatedVacantJobs > 0)
+            {
+                isOneOrBothJobsOccupied = false;
+            }
         }
         return isOneOrBothJobsOccupied;
     }

@@ -16,12 +16,16 @@ public class RoomEntity : MonoBehaviour
     public bool IsFirstTime = true;
 
     //----------------------------------------------------
+    public Room room;
+    //----------------------------------------------------
     public GameObject gemButton;
     public List<GameObject> lights;
 
     public void Start()
     {
         roomGameObject = this.gameObject.transform.parent.gameObject;
+        room = new Room(roomGameObject);
+        room.roomJobs = GetComponent<JobEntity>().roomJobs;
         jobPathFinders = GetComponentsInChildren<JobPathFinder>();
         LevelManager.Instance.roomManager.getRoomWithGameObject(roomGameObject).
             productionJobType = this.productionJobType;
@@ -42,11 +46,21 @@ public class RoomEntity : MonoBehaviour
 
         foreach (var jobPathFinder in jobPathFinders)
         {
-            if (jobPathFinder.job == job &&
-                character.containerEntrance == jobPathFinder.entrancePos)
+            if (job.jobRoom.name == "HibernationRoom")
             {
-                return jobPathFinder;
+                if (character.containerEntrance == jobPathFinder.entrancePos)
+                {
+                    return jobPathFinder;
+                }
             }
+            else {
+                if (jobPathFinder.job == job &&
+                    character.containerEntrance == jobPathFinder.entrancePos)
+                {
+                    return jobPathFinder;
+                }
+            }
+
         }
         return null;
     }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public enum productionJobType
 {
     production,
     maintenance
 }
-public class Room
+public class Room:IEquatable<Room>
 {
 
     #region Constructors
@@ -14,7 +14,6 @@ public class Room
     public Room(GameObject roomGameObject)
     {
         this.roomGameObject = roomGameObject;
-
     }
 
     public Room(GameObject roomGameObject, int productionCyclePeriod,
@@ -186,7 +185,6 @@ public class Room
     public void addResourceLoad()
     {
         List<ResourceProducer> resourceProducers = GameBrain.Instance.resourcesManager.producers.FindAll(c => c.resource == roomProductionResource);
-
         float load = (roomResourceLoad / resourceProducers.Count);
         roomProductionResource.valueInPercentage += load;
         roomProductionResource.valueInPercentage =
@@ -196,7 +194,6 @@ public class Room
         roomResourceLoad = 0;
         roomWorkedHours = 0;
         reflectInRoomDebuggerUI();
-
     }
 
     /// <summary>
@@ -252,14 +249,9 @@ public class Room
         }
     }
 
-
-    #endregion
-
-    #region Logical operators overrides
-
-    public static bool operator ==(Room room1, Room room2)
+    public bool Equals(Room other)
     {
-        if (room1.roomGameObject == room2.roomGameObject)
+        if (this.roomGameObject == other.roomGameObject)
         {
             return true;
         }
@@ -268,16 +260,37 @@ public class Room
             return false;
         }
     }
+
+
+    #endregion
+
+    #region Logical operators overrides
+
+    public static bool operator ==(Room room1, Room room2)
+    {
+        if (object.ReferenceEquals(room1, null))
+        {
+            return object.ReferenceEquals(room2, null);
+        }
+        if (object.ReferenceEquals(room2, null))
+        {
+            return object.ReferenceEquals(room1, null);
+        }
+        return room1.Equals(room2);
+
+
+    }
     public static bool operator !=(Room room1, Room room2)
     {
-        if (room1.roomGameObject != room2.roomGameObject)
+        if (object.ReferenceEquals(room1, null))
         {
-            return true;
+            return object.ReferenceEquals(room2, null);
         }
-        else
+        if (object.ReferenceEquals(room2, null))
         {
-            return false;
+            return object.ReferenceEquals(room1, null);
         }
+        return room1.Equals(room2);
     }
 
     public static bool operator ==(Room room, GameObject gameObject)
@@ -302,6 +315,7 @@ public class Room
             return false;
         }
     }
+
 
     #endregion
     #endregion

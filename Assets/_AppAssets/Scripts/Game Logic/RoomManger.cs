@@ -131,6 +131,7 @@ public class RoomManger : MonoBehaviour
         }
         return null;
     }
+
     public void populateToARoom(GameObject roomGameObject, GameObject containedObj)
     {
         Room currentRoom = LevelManager.Instance.roomManager.getRoomWithGameObject(roomGameObject);
