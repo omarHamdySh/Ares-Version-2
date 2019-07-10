@@ -40,6 +40,10 @@ public class SettingManger : MonoBehaviour
     }
     #endregion
 
+    #region Music
+    
+    #endregion
+
 
     private void Start()
     {
