@@ -1905,6 +1905,7 @@ MonoBehaviour:
   productionJobType: 0
   DebuggingUI: {fileID: 3361020342770974129}
   NumOfCharInRoom: 0
+  IsFirstTime: 1
   gemButton: {fileID: 0}
   lights:
   - {fileID: 7326870745643395227}
@@ -2494,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5452230973907868695
 Transform:
   m_ObjectHideFlags: 0

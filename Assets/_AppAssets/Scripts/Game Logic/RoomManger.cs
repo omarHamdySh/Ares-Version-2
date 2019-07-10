@@ -45,22 +45,9 @@ public class RoomManger : MonoBehaviour
     {
         foreach (var room in rooms)
         {
-            if (room== obj)
+            if (room.roomGameObject == obj)
             {
                 return room;
-            }
-        }
-        return null;
-    }
-    public Room getRoomWithGameObjectFromRoomBounds(GameObject roomGameObject)
-    {
-        //LevelManager.Instance.roomManager.getRoomWithGameObject(drag)
-        foreach (KeyValuePair<Room, Bounds> entry in roomsBounds)
-        {
-
-            if (entry.Key== roomGameObject)
-            {
-                return entry.Key;
             }
         }
         return null;
@@ -175,22 +162,22 @@ public class RoomManger : MonoBehaviour
 
     private static void handleRoomLights(GameObject roomGameObject)
     {
-        var lightsList = roomGameObject.GetComponentInChildren<RoomEntity>().lights;
-        bool isSomeBodyThere = false;
-        foreach (var job in roomGameObject.GetComponentInChildren<JobEntity>().roomJobs)
-        {
-            if (job.jobState == JobState.Occupied && job.jobHolder != null)
-            {
-                isSomeBodyThere = true;
-            }
-        }
-        if (!isSomeBodyThere)
-        {
-            foreach (var light in lightsList)
-            {
-                light.SetActive(false);
-            }
-        }
+        //var lightsList = roomGameObject.GetComponentInChildren<RoomEntity>().lights;
+        //bool isSomeBodyThere = false;
+        //foreach (var job in roomGameObject.GetComponentInChildren<JobEntity>().roomJobs)
+        //{
+        //    if (job.jobState == JobState.Occupied && job.jobHolder != null)
+        //    {
+        //        isSomeBodyThere = true;
+        //    }
+        //}
+        //if (!isSomeBodyThere)
+        //{
+        //    foreach (var light in lightsList)
+        //    {
+        //        light.SetActive(false);
+        //    }
+        //}
     }
     #endregion
 

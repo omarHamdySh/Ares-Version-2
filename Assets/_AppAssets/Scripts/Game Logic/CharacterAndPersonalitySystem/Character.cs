@@ -46,7 +46,8 @@ public class Character
     #region Constructor(s)
 
     //Can't be deleted, it is being used.
-    public Character(GameObject characterGameObject) {
+    public Character(GameObject characterGameObject)
+    {
 
         this.characterGameObject = characterGameObject;
     }
@@ -68,17 +69,48 @@ public class Character
 
     public void updateStamina()
     {//Called over time
-        if (jobState == CharacterJobState.Unemployed)
+        bool isOneOrBothJobsOccupied = false;
+        isOneOrBothJobsOccupied = checkForJobsStates(isOneOrBothJobsOccupied);
+        if (isOneOrBothJobsOccupied)
+        {
+            if (jobState == CharacterJobState.Unemployed)
+            {
+
+                stamina += characterLevel.staminaRefillSpeedPerSecond;
+                stamina = Mathf.Clamp(stamina, 0, 10);
+
+            }
+            else if (jobState == CharacterJobState.Employed)
+            {
+                stamina -= job.staminaReductionRate;
+                stamina = Mathf.Clamp(stamina, 0, 10);
+            }
+        }
+        else
         {
             stamina += characterLevel.staminaRefillSpeedPerSecond;
             stamina = Mathf.Clamp(stamina, 0, 10);
         }
-        else if (jobState == CharacterJobState.Employed)
-        {
-            stamina -= job.staminaReductionRate;
-            stamina = Mathf.Clamp(stamina, 0, 10);
-        }
     }
+
+    private bool checkForJobsStates(bool isOneOrBothJobsOccupied)
+    {
+        isOneOrBothJobsOccupied = true;
+        int activatedVacantJobs = 0;
+        foreach (var job in containerRoom.roomJobs)
+        {
+            if (job.jobState == JobState.Vacant)
+            {
+                activatedVacantJobs++;
+            }
+        }
+        if (activatedVacantJobs > 0)
+        {
+            isOneOrBothJobsOccupied = false;
+        }
+        return isOneOrBothJobsOccupied;
+    }
+
     #region Postponed Logic 
     //public void updateCurrentCharacterLevelGameTimeDay()
     //{//called each hour
@@ -122,12 +154,12 @@ public class Character
 
     //public void creditProductionCycle()
     //{//Called at each production cycle process end.
-        //float productionCyclesSum = 0;
-        //foreach (var room in characterLevel.totalRoomWorkedHours.Keys)
-        //{
-        //    productionCyclesSum += characterLevel.totalRoomWorkedHours[room] - room.productionCyclePeriod;
-        //}
-        //characterLevel.doneProductionCycles = Mathf.RoundToInt(productionCyclesSum);
+    //float productionCyclesSum = 0;
+    //foreach (var room in characterLevel.totalRoomWorkedHours.Keys)
+    //{
+    //    productionCyclesSum += characterLevel.totalRoomWorkedHours[room] - room.productionCyclePeriod;
+    //}
+    //characterLevel.doneProductionCycles = Mathf.RoundToInt(productionCyclesSum);
     //}
 
     /// <summary>
@@ -139,17 +171,17 @@ public class Character
     /// <returns></returns>
     //public void calculateOverWorkedHoursProduct()
     //{//Called at updateCharacterLevel() which is each game hour.
-        //float overWork = 0;
-        //foreach (var level in characterLevels)
-        //{
-        //    foreach (var day in level.totalLevelDaysWorkedHours.Keys)
-        //    {
-        //        var overWorkTemp = level.workingHoursDailyLimit - level.totalLevelDaysWorkedHours[day].gameHour;
-        //        overWork += overWorkTemp < 0 ? overWorkTemp : 0;
-        //    }
-        //}
-        //Calculate the product of the worked hours of character Levels worked hours history dictionary
-        //overWorkedHoursProduct = Mathf.Abs(overWork);
+    //float overWork = 0;
+    //foreach (var level in characterLevels)
+    //{
+    //    foreach (var day in level.totalLevelDaysWorkedHours.Keys)
+    //    {
+    //        var overWorkTemp = level.workingHoursDailyLimit - level.totalLevelDaysWorkedHours[day].gameHour;
+    //        overWork += overWorkTemp < 0 ? overWorkTemp : 0;
+    //    }
+    //}
+    //Calculate the product of the worked hours of character Levels worked hours history dictionary
+    //overWorkedHoursProduct = Mathf.Abs(overWork);
     //}
 
 
@@ -161,33 +193,33 @@ public class Character
     //public void updateCharacterLevel()
     //{//Called each game hour
 
-        //This must be called before leveling the character up to assign the value to the current level workedhours first.
-        //calculateOverWorkedHoursProduct();
-        //if (characterLevel.doneProductionCycles == characterLevel.levelProductionCyclePeriod)
-        //{
-        //    LevelManager.Instance.characterManager.levelCharacterUp(this);
-        //}
-        //IF character reaches the level period then level'm up.
-        //GameTime currentLevelGameTime = totalWorkedHours[characterLevel];
-        //GameTime leveLGameTimeLimit = characterLevel.LevelTimeLimit;
+    //This must be called before leveling the character up to assign the value to the current level workedhours first.
+    //calculateOverWorkedHoursProduct();
+    //if (characterLevel.doneProductionCycles == characterLevel.levelProductionCyclePeriod)
+    //{
+    //    LevelManager.Instance.characterManager.levelCharacterUp(this);
+    //}
+    //IF character reaches the level period then level'm up.
+    //GameTime currentLevelGameTime = totalWorkedHours[characterLevel];
+    //GameTime leveLGameTimeLimit = characterLevel.LevelTimeLimit;
     //}
 
     //public void calculateCharacterHappiness()
     //{//Called each second
-        //Stamina
-        //ProductTotalWorkedHours
-        //if (overWorkedHoursProduct < characterLevel.overWorkHoursProductLimit)
-        //{
-        //    float staminaFactor = (10 - stamina) / 2;
-        //    float overWorkedProductFactor = ((1-(overWorkedHoursProduct/characterLevel.overWorkHoursProductLimit)) * 5);
-        //    happiness = (10 - (staminaFactor + overWorkedProductFactor)) * 10;
-        //    happiness = Mathf.Clamp(happiness, 0, 100);
-        //}
-        //else {
+    //Stamina
+    //ProductTotalWorkedHours
+    //if (overWorkedHoursProduct < characterLevel.overWorkHoursProductLimit)
+    //{
+    //    float staminaFactor = (10 - stamina) / 2;
+    //    float overWorkedProductFactor = ((1-(overWorkedHoursProduct/characterLevel.overWorkHoursProductLimit)) * 5);
+    //    happiness = (10 - (staminaFactor + overWorkedProductFactor)) * 10;
+    //    happiness = Mathf.Clamp(happiness, 0, 100);
+    //}
+    //else {
 
-        //    //Ban the character from being able to work for a while.
-        //    happiness = 0;
-        //}
+    //    //Ban the character from being able to work for a while.
+    //    happiness = 0;
+    //}
 
     //}
     #endregion
@@ -282,6 +314,6 @@ public class Character
         }
     }
     #endregion
-    
+
     #endregion
 }

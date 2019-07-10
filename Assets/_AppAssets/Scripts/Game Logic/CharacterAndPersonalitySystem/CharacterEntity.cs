@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum RoomEntrance
 {
@@ -26,6 +27,14 @@ public class CharacterEntity : MonoBehaviour
     public Vector3 previousFramePos;
 
     //------------------------------------------------
+    [HideInInspector]
+    public Image staminaBarImage;
+    public GameObject staminaBarPrefab;
+    [HideInInspector]
+    public GameObject staminaBarGameObject;
+    public Transform staminaBarTracker;
+    //------------------------------------------------
+    //------------------------------------------------
     HorizontalDirecton roomEntrance;
     // Start is called before the first frame update
 
@@ -40,10 +49,13 @@ public class CharacterEntity : MonoBehaviour
         characterController = GetComponent<CharController>();
         previousFramePos = transform.localPosition;
         fillCharacterData();
+        staminaBarGameObject = Instantiate(staminaBarPrefab, staminaBarTracker.position, Quaternion.identity, null);
+        staminaBarImage = staminaBarGameObject.GetComponentInChildren<Image>();
     }
 
     private void Update()
     {
+        updateCharacterStamina();
         updateCharacterDirectionHorizontally();
         //if (!isMovingOuterMovement)
         //{
@@ -168,6 +180,7 @@ public class CharacterEntity : MonoBehaviour
     {
         switch (roomEntrance)
         {
+
             case HorizontalDirecton.Right:
                 switch (direction)
                 {
@@ -247,7 +260,24 @@ public class CharacterEntity : MonoBehaviour
     #endregion
 
     #endregion
+    void updateCharacterStamina()
+    {
+        staminaBarGameObject.transform.position = staminaBarTracker.position;
+        staminaBarImage.fillAmount = (character.stamina>1?character.stamina:1) / 10;
+        if (character.stamina >= 7.5)
+        {
+            staminaBarImage.color = LevelUIManager.Instance.GoodColor;
+        }
+        else if (character.stamina >= 4 && character.stamina < 7.5)
+        {
+            staminaBarImage.color = LevelUIManager.Instance.MiddleColor;
 
+        }
+        else if (character.stamina > 0 && character.stamina < 4)
+        {
+            staminaBarImage.color = LevelUIManager.Instance.BadColor;
+        }
+    }
 
     public void fillCharacterData()
     {
@@ -276,7 +306,7 @@ public class CharacterEntity : MonoBehaviour
             roomEntrance = HorizontalDirecton.Right;
         }
         //characterController.TriggerGravity(true);
-
+        character.containerRoom = LevelManager.Instance.roomManager.getRoomWithGameObject(roomEntity.roomGameObject);
         character.characterGameObject.transform.position += (Vector3.up * -0.6f);
         followRoomInnerPath(roomEntity, false);
     }
@@ -285,15 +315,8 @@ public class CharacterEntity : MonoBehaviour
     {
         if (character.job != null)
         {
-            JobPathFinder pathFinder;
-            if (roomEntity.transform.parent.name.Equals("HibernationRoom"))
-            {
-                pathFinder = RoomEntity.getInnerPathToRestPoints(character.job, character, roomEntity.jobPathFinders);
-            }
-            else
-            {
-                pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
-            }
+            print(gameObject.name);
+            JobPathFinder pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
             pathFinder.isReversed = isReversed;
             pathFinder.isFollowingPath = true;
             characterAnimationFSM.changeAnimationStateTo(CharacterAnimationsState.Walking);
@@ -401,22 +424,22 @@ public class CharacterEntity : MonoBehaviour
 
     public void handleRoomLighting(RoomEntity roomEntity)
     {
-        var lightsList = roomEntity.lights;
-        bool isSomeBodyThere = false;
-        foreach (var job in roomEntity.GetComponentInChildren<JobEntity>().roomJobs)
-        {
-            if (job.jobState == JobState.Occupied && job.jobHolder != null)
-            {
-                isSomeBodyThere = true;
-            }
-        }
-        if (isSomeBodyThere)
-        {
-            foreach (var light in lightsList)
-            {
-                light.SetActive(true);
-            }
-        }
+        //var lightsList = roomEntity.lights;
+        //bool isSomeBodyThere = false;
+        //foreach (var job in roomEntity.GetComponentInChildren<JobEntity>().roomJobs)
+        //{
+        //    if (job.jobState == JobState.Occupied && job.jobHolder != null)
+        //    {
+        //        isSomeBodyThere = true;
+        //    }
+        //}
+        //if (isSomeBodyThere)
+        //{
+        //    foreach (var light in lightsList)
+        //    {
+        //        light.SetActive(true);
+        //    }
+        //}
     }
 
 

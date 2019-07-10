@@ -71,7 +71,7 @@ public class Room
     /// </summary>
     public void reflectInRoomDebuggerUI()
     {
-        debuggingUI.setProductionProgressValue(roomResourceLoad/100);
+        debuggingUI.setProductionProgressValue(roomResourceLoad / 100);
     }
 
     /// <summary>
@@ -100,7 +100,7 @@ public class Room
                     break;
             }
             roomProductivity = /*(jobsProductionRates/roomProductionRate) **/ roomProductionRate;
-            debuggingUI.roomProductivityTxt.text = roomProductivity.ToString() ;
+            debuggingUI.roomProductivityTxt.text = roomProductivity.ToString();
             changeInResourceOverTime();
             reflectInRoomDebuggerUI(); //Debugger ui method.
 
@@ -109,21 +109,26 @@ public class Room
 
     private bool checkForJobsStates(bool isOneOrBothJobsOccupied)
     {
+        isOneOrBothJobsOccupied = true;
+        int activatedVacantJobs = 0;
         foreach (var job in roomJobs)
         {
-            if (job.jobState == JobState.Occupied && job.jobHolder!=null)
+            if (job.jobState == JobState.Vacant)
             {
-                isOneOrBothJobsOccupied = true;
+                activatedVacantJobs++;
             }
         }
-
+        if (activatedVacantJobs>0)
+        {
+            isOneOrBothJobsOccupied = false;
+        }
         return isOneOrBothJobsOccupied;
     }
 
     public void changeInResourceOverTime()
     {//Called each second;
         roomResourceLoad += roomProductivity;
-        if (roomResourceLoad>=100)
+        if (roomResourceLoad >= 100)
         {
             this.roomGameObject.GetComponentInChildren<RoomEntity>().showGemUI();
         }
@@ -148,7 +153,8 @@ public class Room
                     {
                         jobsProductionRates += (job.jobHolder.productivity);
                     }
-                    else {
+                    else
+                    {
                         jobsProductionRates += roomProductionRate / 2;
                     }
                     break;
@@ -185,7 +191,7 @@ public class Room
         roomProductionResource.valueInPercentage += load;
         roomProductionResource.valueInPercentage =
             (roomProductionResource.valueInPercentage + load >= 100)
-            ? 100   : roomProductionResource.valueInPercentage;
+            ? 100 : roomProductionResource.valueInPercentage;
         roomProductionResource.totalConsumptionRate = 0;
         roomResourceLoad = 0;
         roomWorkedHours = 0;

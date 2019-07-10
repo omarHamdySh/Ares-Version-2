@@ -25,6 +25,11 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private GameObject bg;
     [SerializeField] private UIElement closeBuildingBtnObj;
     [SerializeField] private List<GameObject> buildPrefabs;
+    [SerializeField] private float GrabberRoomBuildingCost;
+    [SerializeField] private float StoreRoomBuildingCost;
+    [SerializeField] private float FuelRoomBuildingCost;
+
+    public GameObject BuildErrorMessageObj;
 
     private string currChosenBuildPrefab;
     private int roomId = 0;
@@ -75,6 +80,7 @@ public class BuildManager : MonoBehaviour
 
                         // Create Instance of the room
                         int index = GetTheBuildPrefab(hit.transform.GetComponent<Slot>().MyDir);
+                        consumeBuildingCost(index);
                         GameObject capsole = Instantiate(buildPrefabs[index], hit.transform.position, Quaternion.identity) as GameObject;
                         capsole.name = index + "_" + roomId.ToString();
                         capsole.transform.SetParent(LevelManager.Instance.Environment.transform);
@@ -139,7 +145,18 @@ public class BuildManager : MonoBehaviour
     /// <param name="buildType">The selected build prefab type</param>
     public void ChoseBuildPrefab(string buildType)
     {
-        currChosenBuildPrefab = buildType;
+        int index = buildPrefabs.FindIndex(x => x.name.Equals(buildType));
+        if (isResourceEnoughToBuild(index))
+        {
+            currChosenBuildPrefab = buildType;
+            OpenBuildSlots();
+        }
+        else
+        {
+            BuildErrorMessageObj.SetActive(true);
+            return;
+        }
+
     }
 
     /// <summary>
@@ -170,5 +187,48 @@ public class BuildManager : MonoBehaviour
         {
             i.CloseAvailableSlots();
         }
+    }
+    public void consumeBuildingCost(int index)
+    {
+        float consumptionValue = 0;
+        switch (index)
+        {
+            case 0:
+            case 1:
+                consumptionValue = GrabberRoomBuildingCost;
+                break;
+            case 2:
+                consumptionValue = StoreRoomBuildingCost;
+                break;
+            case 3:
+                consumptionValue = FuelRoomBuildingCost;
+                break;
+        }
+
+        GameBrain.Instance.resourcesManager.consumeFromThis(//Consume the building cost from the Iron resource
+            GameBrain.Instance.resourcesManager.gameResources.Find(r => r.resourceType == ResourceType.Iron)// Get Iron Resource reference
+            , consumptionValue);
+    }
+    public bool isResourceEnoughToBuild(int index)
+    {
+        float consumptionValue = 0;
+        switch (index)
+        {
+            case 0:
+            case 1:
+                consumptionValue = GrabberRoomBuildingCost;
+                break;
+            case 2:
+                consumptionValue = StoreRoomBuildingCost;
+                break;
+            case 3:
+                consumptionValue = FuelRoomBuildingCost;
+                break;
+        }
+        if (GameBrain.Instance.resourcesManager.gameResources.Find(r => r.resourceType == ResourceType.Iron).valueInPercentage < consumptionValue)
+        {
+            return false;
+        }
+        return true;
     }
 }

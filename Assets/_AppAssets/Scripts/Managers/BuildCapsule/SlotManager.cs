@@ -136,15 +136,6 @@ public class SlotManager : MonoBehaviour
 
         slot.RoomObj = capsole;
         slot.BuildThisSlot(roomPrefab.name);
-        LevelManager.Instance.CalculateThisRoomBounds(new Room(capsole));
-
-        //int num = PlayerPrefs.GetInt(id + " CharNum");
-
-        //for (int i = 0; i < num; i++)
-        //{
-        //    LevelManager.Instance.CreateChar(capsole.GetComponentInChildren<RoomEntity>());
-        //}
-
-        //capsole.GetComponentInChildren<RoomEntity>().IsFirstTime = false;
+        LevelManager.Instance.CalculateThisRoomBounds(new Room(capsole));        
     }
 }

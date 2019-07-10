@@ -42,6 +42,7 @@ Transform:
   - {fileID: 625488203399646650}
   - {fileID: 625488202097439157}
   - {fileID: 7454352338645841902}
+  - {fileID: 5100995579232999650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,7 +200,7 @@ MonoBehaviour:
     age: 
     wakeUpDay: 0
     wakeUpHour: 0
-    stamina: 0
+    stamina: 10
     happiness: 0
     job:
       jobName: 
@@ -324,6 +325,11 @@ MonoBehaviour:
   isMovingOuterMovement: 0
   floatingEffect: {fileID: 7734127744172182516}
   previousFramePos: {x: 0, y: 0, z: 0}
+  staminaBarImage: {fileID: 0}
+  staminaBarPrefab: {fileID: 7460235655051136554, guid: 14f9f5fd04c939e4bb6594a63022a861,
+    type: 3}
+  staminaBarGameObject: {fileID: 0}
+  staminaBarTracker: {fileID: 5100995579232999650}
 --- !u!114 &625488201829187807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +516,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8344333827235320549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5100995579232999650}
+  m_Layer: 10
+  m_Name: StaminaBarTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5100995579232999650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8344333827235320549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.567, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 625488201829187805}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5231761046071984952
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -224,10 +224,6 @@ public class CharController : MonoBehaviour
 
     public void MoveInPath()
     {
-        if (LevelManager.Instance.Testing)
-        {
-            print("Character start moving to new room");
-        }
         pathIndex = 0;
         curPos = transform.position;
         //Flip();
