@@ -11,6 +11,7 @@ public class DirectorCode : MonoBehaviour {
     public Text slideNumberText;
 
     [Header("Assets")]
+    public List<PlayableDirector> playableDirectors;
     public TimelineAsset[] timeLinesInOrder;
     private PlayableDirector director;
     private int slideNumber;

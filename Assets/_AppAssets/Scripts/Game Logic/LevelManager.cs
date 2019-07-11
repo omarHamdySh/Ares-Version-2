@@ -88,7 +88,21 @@ public class LevelManager : MonoBehaviour
 
     public void CreateNewChar()
     {
-        CreateChar(hippernationRoom.gameObject.GetComponentInChildren<RoomEntity>());
+        createCharacter();
+    }
+    public void createCharacter()
+    {
+        // Declare character
+        Character character;
+
+        // Create Instantiation Pos for the new character before creation time
+        Vector3 pos = new Vector3(hippernationRoom.position.x, hippernationRoom.position.y, charPrefab.transform.position.z);
+
+        // Instantiate the Character.
+        GameObject characterGameObject = Instantiate(charPrefab, pos, Quaternion.identity) as GameObject;
+
+        // Add the physical character reference to the logical character
+        characterManager.addNewCharacter(character = characterGameObject.GetComponent<CharacterEntity>().character);
     }
 
     public void CreateChar(RoomEntity roomEntity)

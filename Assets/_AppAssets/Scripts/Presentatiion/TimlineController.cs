@@ -9,11 +9,14 @@ public class TimlineController : MonoBehaviour
     public List<PlayableDirector> playableDirectors;
     public List<TimelineAsset> timelines;
     public int currentTimeline;
+    private void Start()
+    {
+        PlayFromTimelines();
+    }
     public void Play()
     {
         foreach (PlayableDirector playableDirector in playableDirectors)
         {
-            currentTimeline = Mathf.Clamp(currentTimeline, 0, timelines.Count - 1);
             playableDirector.Play();
         }
     }
@@ -24,5 +27,6 @@ public class TimlineController : MonoBehaviour
         currentTimeline =  Mathf.Clamp(currentTimeline,0, timelines.Count - 1);
         selectedAsset = timelines[currentTimeline];
         playableDirectors[0].Play(selectedAsset);
+
     }
 }

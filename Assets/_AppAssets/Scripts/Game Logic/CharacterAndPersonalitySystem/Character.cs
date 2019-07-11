@@ -92,13 +92,14 @@ public class Character
             {
                 stamina -= job.staminaReductionRate;
                 stamina = Mathf.Clamp(stamina, 0, 10);
-                //if (stamina == 0)
-                //{
-                //    LevelManager.Instance.moveCharacterManuallyToRoom(
-                //        LevelManager.Instance.hippernationRoom.GetComponentInChildren<RoomEntity>()
-                //        , this, characterGameObject);
-                //}
-            }
+                if (stamina == 0)
+                {
+                    stamina = 10;
+                    //    LevelManager.Instance.moveCharacterManuallyToRoom(
+                    //        LevelManager.Instance.hippernationRoom.GetComponentInChildren<RoomEntity>()
+                    //        , this, characterGameObject);
+                }
+        }
         }
         else
         {
