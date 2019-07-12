@@ -119,6 +119,12 @@ public class LevelManager : MonoBehaviour
         // Add the physical character reference to the logical character
         characterManager.addNewCharacter(character = characterGameObject.GetComponent<CharacterEntity>().character);
 
+        // This for don't allow any char to open the training tutorial UI but not the Char generated from save data for training
+        if (!roomEntity.transform.parent.name.Equals("TrainningRoom"))
+        {
+            characterGameObject.GetComponent<CharacterEntity>().isFristTime = false;
+        }
+
         // Naming the character at the creation time
         characterGameObject.name = charindex.ToString();
 

@@ -21,7 +21,7 @@ public class CharacterEntity : MonoBehaviour
     public bool isMovingInnerMovement;
     public bool isMovingOuterMovement;
     private float walkingSpeed;
-    private bool isFristTime = true;
+    public bool isFristTime = true;
     public GameObject floatingEffect;
     //------------------------------------------------
     public Vector3 previousFramePos;
