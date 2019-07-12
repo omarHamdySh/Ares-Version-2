@@ -5891,10 +5891,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 0
-  isLookingAt: 0
-  isFollowing: 0
-  target: {fileID: 0}
-  vCam: {fileID: 0}
+  isLookingAt: 1
+  isFollowing: 1
+  target: {fileID: 95690726}
+  vCam: {fileID: 707723419}
 --- !u!1 &345062174
 GameObject:
   m_ObjectHideFlags: 0
@@ -26847,7 +26847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 91.59344, y: 5.8, z: -36.40683}
+  m_FollowOffset: {x: 83.95883, y: 5.8, z: -46.12016}
   m_XDamping: 1
   m_YDamping: 10.2
   m_ZDamping: 1
