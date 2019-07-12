@@ -19,7 +19,6 @@ public class CutsceneManager : IGameplayEventManager
         GameBrain.Instance.gameplayFSMManager.changeToCutSceneState();
         currentCutscene = (CutScene)eventObj;
         currentCutscene.startEvent();
-        GameBrain.Instance.logMessage( currentCutscene.cutsceneName + " has started");
         //Gameplay state change
     }
 

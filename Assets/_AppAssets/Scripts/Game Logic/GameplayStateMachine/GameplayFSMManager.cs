@@ -54,7 +54,7 @@ public class GameplayFSMManager : MonoBehaviour
     ///     public Queue<GameObject> enemyQueue = new Queue<GameObject>();
     /// 
     /// </summary>
-    private void Awake()
+    private void Start()
     {
         /// <summary>
         /// Instantiation of states Instances goes here.
@@ -93,7 +93,7 @@ public class GameplayFSMManager : MonoBehaviour
         {
             gameplayFSMManager = this
         };
-        stateStack.Push(cutsceneState);
+        PushState(tycoonState);
     }
 
     // Update is called once per frame

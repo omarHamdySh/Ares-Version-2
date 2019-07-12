@@ -56,7 +56,7 @@ public class GameBrain : MonoBehaviour
     {
         if (testing)
         {
-            Debug.Log("Game brain started");
+           // Debug.Log("Game brain started");
         }
         cutscenesManager = new CutsceneManager();
         trainingsManager = new TrainingManager();
@@ -67,7 +67,7 @@ public class GameBrain : MonoBehaviour
     }
     public void Update()
     {
-        FireEventsByTime();
+        //FireEventsByTime();
     }
 
     private void FireEventsByTime()

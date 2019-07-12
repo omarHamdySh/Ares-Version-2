@@ -17,7 +17,6 @@ public class TutorialManager : IGameplayEventManager
         GameBrain.Instance.gameplayFSMManager.changeToTutorialState();
         currentTutorial = (Tutorial)eventObj;
         currentTutorial.startEvent();
-        GameBrain.Instance.logMessage(currentTutorial.tutorialName + " has started");
     }
 
 }

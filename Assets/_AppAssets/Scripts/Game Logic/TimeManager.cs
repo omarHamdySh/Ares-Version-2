@@ -260,10 +260,10 @@ public class TimeManager : MonoBehaviour
     public void Update()
     {
 
-        if (GameBrain.Instance.testing)
-        {
-            isUpdating = true;
-        }
+        //if (GameBrain.Instance.testing)
+        //{
+        //    isUpdating = true;
+        //}
         if (isUpdating)
         {
             //if (GameBrain.Instance.testing)

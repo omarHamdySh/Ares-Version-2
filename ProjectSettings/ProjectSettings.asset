@@ -18,9 +18,9 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 0, b: 0.25000048, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 0
-  m_SplashScreenOverlayOpacity: 0
-  m_SplashScreenAnimation: 2
+  m_ShowUnitySplashLogo: 1
+  m_SplashScreenOverlayOpacity: 0.503
+  m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 0
@@ -39,11 +39,7 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: 5dde2399589af78488668cac1bc39713, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: ef4ddd2490c6ef8428699f9be4c574e7, type: 3}
-    duration: 10
+  m_SplashScreenLogos: []
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -608,9 +604,9 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: ef4ddd2490c6ef8428699f9be4c574e7,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 0dc62db9c10e1974cb91706447cc254f,
     type: 3}
-  splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: ef4ddd2490c6ef8428699f9be4c574e7,
+  splashScreenBackgroundSourcePortrait: {fileID: 21300000, guid: 0dc62db9c10e1974cb91706447cc254f,
     type: 3}
   spritePackerPolicy: 
   webGLMemorySize: 256

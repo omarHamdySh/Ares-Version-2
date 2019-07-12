@@ -17,6 +17,5 @@ public class TrainingManager : IGameplayEventManager
         GameBrain.Instance.gameplayFSMManager.changeToTrainingState();
         currentTraining = (Training)eventObj;
         currentTraining.startTraining();
-        GameBrain.Instance.logMessage(currentTraining.trainingName + " has started");
     }
 }

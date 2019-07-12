@@ -30,16 +30,16 @@ public class ResourcesManager : MonoBehaviour
 
     }
     /// <summary>
-    /// Checking if the current run of the game is withing the testing time:
+    /// Checking if the current run of the game is within the testing time:
     /// This will make the isCalculating true at the testing time hence that at the build version
     /// the gameplay states are affecting the resources manager some may be toggle it off.
     /// </summary>
     public void updateEachSecond()
     {
-        if (GameBrain.Instance.testing)
-        {//Don't remove this before reading the summary above the method's body.
-            isCaluclating = true;
-        }
+        //if (GameBrain.Instance.testing)
+        //{//Don't remove this before reading the summary above the method's body.
+        //    isCaluclating = true;
+        //}
         if (isCaluclating)
         {
 

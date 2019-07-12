@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseState : MonoBehaviour, IGameplayState
 {
-    GameplayState stateName = GameplayState.TutorialState;
+    GameplayState stateName = GameplayState.PauseState;
     /// <summary>
     /// Declaration of dynamic variables for surving the logic goes here.
     /// will be populated here by the GameplayFSMManager itself that will declare this place at the first place.
@@ -18,7 +18,7 @@ public class PauseState : MonoBehaviour, IGameplayState
         //movementController.followPath();
         GameBrain.Instance.logMessage(this.ToString());
         GameBrain.Instance.resourcesManager.isCaluclating = false;
-        GameBrain.Instance.timeManager.isUpdating = true;
+        GameBrain.Instance.timeManager.isUpdating = false;
         LevelManager.Instance.GetComponent<TouchFSMController>().enabled = false;
     }
     /// <summary>
@@ -39,6 +39,8 @@ public class PauseState : MonoBehaviour, IGameplayState
         //movementController.steeringScript = null;
         //movementController.removeSteeringScript();
         LevelManager.Instance.GetComponent<TouchFSMController>().enabled = true;
+        GameBrain.Instance.resourcesManager.isCaluclating = true;
+        GameBrain.Instance.timeManager.isUpdating = true;
     }
 
     public void OnStateUpdate()

@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public RoomManger roomManager;
     public CharacterManager characterManager;
     public ClickStateMachine controllersStateMachine;
+    public TimlineController presentationManager;
 
     [SerializeField] private GameObject charPrefab;
     public Transform hippernationRoom;

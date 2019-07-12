@@ -315,7 +315,7 @@ public class CharacterEntity : MonoBehaviour
     {
         if (character.job != null)
         {
-            print(gameObject.name);
+            //print(gameObject.name);
             JobPathFinder pathFinder = RoomEntity.getJobPathObject(character.job, character, roomEntity.jobPathFinders);
             pathFinder.isReversed = isReversed;
             pathFinder.isFollowingPath = true;

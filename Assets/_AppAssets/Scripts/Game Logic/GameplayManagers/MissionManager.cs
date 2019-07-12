@@ -35,6 +35,5 @@ public class MissionManager : IGameplayEventManager
         GameBrain.Instance.gameplayFSMManager.changeToMissionState();
         currenMission = (Mission)eventObj;
         currenMission.startMission();
-        GameBrain.Instance.logMessage(currenMission.missionName + " has started");
     }
 }
