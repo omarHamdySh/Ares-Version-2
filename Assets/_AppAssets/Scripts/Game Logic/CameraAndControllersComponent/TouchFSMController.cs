@@ -75,19 +75,28 @@ public class TouchFSMController : MonoBehaviour
 
     private void handleMouse()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseStartPos = Input.mousePosition;
+            GameObject selectedObject = null;
+            if (checkIfPlayerIsTouched(out selectedObject))
+            {
+                if (selectedObject != null)
+                {
+                    Select(selectedObject);
+                }
+            }
+
+        }
         if (!isDraggingCharacter)
         {
+            Deselect();
             float scrollValue = Input.GetAxis("Mouse ScrollWheel");
-            zoomIn(-scrollValue * 150 *perspectiveZoomSpeed);
+            zoomIn(-scrollValue * 150 * perspectiveZoomSpeed);
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                mouseStartPos = Input.mousePosition;
 
-            }
             if (Input.GetMouseButton(0))
             {
-
                 mouseSwapeDirection = Vector2.one * Input.mousePosition - mouseStartPos;
                 mousePosX =/* Mathf.Clamp*/(mouseSwapeDirection.x/*, clampValue, -clampValue*/) * Time.deltaTime * swapeSpeed;
                 mousePosY = /*Mathf.Clamp*/(mouseSwapeDirection.y/*, clampValue, -clampValue*/) * Time.deltaTime * swapeSpeed;
@@ -105,6 +114,7 @@ public class TouchFSMController : MonoBehaviour
                 mouseSwapeDirection = Vector2.zero;
             }
         }
+
     }
 
     private void swapCameraByMouseTo()
@@ -238,6 +248,24 @@ public class TouchFSMController : MonoBehaviour
         return false;
 
     }
+    public bool checkIfPlayerIsTouched(out GameObject characterGameObject)
+
+    {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.tag.Equals("Character"))
+            {
+                characterGameObject = hit.transform.gameObject;
+                return true;
+            }
+        }
+        characterGameObject = null;
+        return false;
+
+    }
 
     public bool checkIfRoomIsTouched()
     {
@@ -256,8 +284,8 @@ public class TouchFSMController : MonoBehaviour
     public void Select(GameObject gameObj)
     {//Select on single click
         //Select character's code on single click goes here
-
         ZUIManager.Instance.OpenSideMenu("PersonaSideMenu");
+        print(LevelManager.Instance.characterManager.getCharacterWithGameObject(gameObj).name+" is selected");
     }
     public void SelectAndZoom(GameObject gameObj)
     {//Select on double click
