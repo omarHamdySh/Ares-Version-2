@@ -86,7 +86,6 @@ public class TouchFSMController : MonoBehaviour
                     Select(selectedObject);
                 }
             }
-
         }
         if (!isDraggingCharacter)
         {
