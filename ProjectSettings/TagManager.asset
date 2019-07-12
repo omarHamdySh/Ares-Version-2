@@ -55,3 +55,6 @@ TagManager:
   - name: FuelTube
     uniqueID: 3465223995
     locked: 0
+  - name: CapsuleUI
+    uniqueID: 1304850675
+    locked: 0
