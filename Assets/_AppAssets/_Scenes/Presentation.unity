@@ -2053,7 +2053,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30.9
+  m_fontSize: 30.85
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5448,7 +5448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315291188}
   m_Layer: 5
-  m_Name: FuelContainer
+  m_Name: PowerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9418,7 +9418,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28.65
+  m_fontSize: 28.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9737,6 +9737,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &661420591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1356653189910989937, guid: 19a0aea8bf528834b8e4b59a3cb138fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 112596714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bee640515741a4490b6bc3dd10decb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &663954176
 GameObject:
   m_ObjectHideFlags: 0
@@ -13934,7 +13946,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 68.15
+  m_fontSize: 68.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15383,7 +15395,7 @@ MonoBehaviour:
   - {fileID: 1259251569}
   - {fileID: 1445520300}
   - {fileID: 958108572}
-  trainingRoom: {fileID: 0}
+  trainingRoom: {fileID: 661420591}
   charTrainAnime: {fileID: 9100000, guid: 060cfec724a24a1438f2bade4bf19488, type: 2}
   animBtns:
   - {fileID: 1259251570}
@@ -25284,7 +25296,7 @@ GameObject:
   - component: {fileID: 1464615726}
   - component: {fileID: 1464615725}
   m_Layer: 5
-  m_Name: FuelImg
+  m_Name: PowerImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25728,7 +25740,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 37.75
+  m_fontSize: 37.7
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29496,7 +29508,7 @@ MonoBehaviour:
         m_MethodName: OpenMenu
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 323623890}
           m_ObjectArgumentAssemblyTypeName: Menu, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -34069,9 +34081,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009368544}
-  m_LocalRotation: {x: 0.00000018998983, y: -0.00000026682395, z: 0.000000100233606,
-    w: -1}
-  m_LocalPosition: {x: 0.36263323, y: 1.1789782, z: -70.64923}
+  m_LocalRotation: {x: -0.0613244, y: 0.0045816144, z: 0.00028149635, w: 0.9981074}
+  m_LocalPosition: {x: -0.39, y: 2.4699988, z: -42.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36639,7 +36650,7 @@ GameObject:
   - component: {fileID: 2145177459}
   - component: {fileID: 2145177461}
   m_Layer: 5
-  m_Name: FuelText
+  m_Name: PowerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
