@@ -157,7 +157,6 @@ public class Dragable_Item : MonoBehaviour
                             {
                                 GetComponent<Animator>().runtimeAnimatorController = myCharC.myAnimController;
                                 oldContainer.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
-                                LevelManager.Instance.presentationManager.currentTimeline = 20;
                             }
 
                             Slot s = roomEntity.mySlot;

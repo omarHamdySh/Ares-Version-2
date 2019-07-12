@@ -174,6 +174,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &37886420
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +240,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 0
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &53550369
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +336,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &56784710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1438,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1001 &112596714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2037,7 +2053,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30.85
+  m_fontSize: 30.9
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3085,6 +3101,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &254031225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,6 +5891,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 0
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &345062174
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,6 +5958,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &363158904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,6 +6200,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!114 &393218467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9386,7 +9418,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28.6
+  m_fontSize: 28.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10597,7 +10629,7 @@ PlayableDirector:
   m_GameObject: {fileID: 707723418}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: cad9e7ab9ad233542aa31c327b844c5f, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: b80c1c9fa9d0c504c85c55bf2962ed41, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -12749,6 +12781,10 @@ MonoBehaviour:
   defaultDeactivated:
   - {fileID: 1117895757}
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1001 &857272963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12890,6 +12926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003375827881079044, guid: 78909cdbd0fa3b442b25d70cad98bcbf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.070007324
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78909cdbd0fa3b442b25d70cad98bcbf, type: 3}
@@ -13146,6 +13187,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &904303849
 GameObject:
   m_ObjectHideFlags: 0
@@ -13889,7 +13934,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 68.05
+  m_fontSize: 68.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14810,6 +14855,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 1
+  isFollowing: 0
+  target: {fileID: 95690726}
+  vCam: {fileID: 707723419}
 --- !u!1 &980255418
 GameObject:
   m_ObjectHideFlags: 0
@@ -15613,6 +15662,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1006727612
 GameObject:
   m_ObjectHideFlags: 0
@@ -16138,6 +16191,10 @@ MonoBehaviour:
   defaultDeactivated:
   - {fileID: 287849496}
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1029882519
 GameObject:
   m_ObjectHideFlags: 0
@@ -18075,6 +18132,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1127448454
 GameObject:
   m_ObjectHideFlags: 0
@@ -22061,6 +22122,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1355845207
 GameObject:
   m_ObjectHideFlags: 0
@@ -26770,7 +26835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.39, y: -5.240001, z: -42.48}
+  m_FollowOffset: {x: 91.59344, y: 5.8, z: -36.40683}
   m_XDamping: 1
   m_YDamping: 10.2
   m_ZDamping: 1
@@ -28476,6 +28541,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 0
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1675011439
 GameObject:
   m_ObjectHideFlags: 0
@@ -28746,6 +28815,10 @@ MonoBehaviour:
   defaultDeactivated:
   - {fileID: 363158904}
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!95 &1683491797
 Animator:
   serializedVersion: 3
@@ -30762,6 +30835,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!43 &1779978927
 Mesh:
   m_ObjectHideFlags: 0
@@ -31341,6 +31418,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1850570024
 GameObject:
   m_ObjectHideFlags: 0
@@ -31466,6 +31547,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 1
+  isLookingAt: 0
+  isFollowing: 0
+  target: {fileID: 0}
+  vCam: {fileID: 0}
 --- !u!1 &1859657167
 GameObject:
   m_ObjectHideFlags: 0
@@ -33984,8 +34069,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009368544}
-  m_LocalRotation: {x: -0.0613244, y: 0.0045816144, z: 0.00028149635, w: 0.9981074}
-  m_LocalPosition: {x: -0.39, y: 2.4699988, z: -42.48}
+  m_LocalRotation: {x: 0.00000018998983, y: -0.00000026682395, z: 0.000000100233606,
+    w: -1}
+  m_LocalPosition: {x: 0.36263323, y: 1.1789782, z: -70.64923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

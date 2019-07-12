@@ -66,7 +66,7 @@ public class RandomGenerateTrainAnim : MonoBehaviour
         isArabic = true; /*(PlayerPrefs.GetString("Lang").Equals("ar")) ? true : false;*/
         isTutorialTextTimerRun = true;
         lineIndex = 0;
-        StartCoroutine(TutorialTimer());
+        StartCoroutine("TutorialTimer");
     }
 
     IEnumerator TutorialTimer()
