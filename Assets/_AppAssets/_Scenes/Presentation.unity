@@ -5891,10 +5891,10 @@ MonoBehaviour:
   isOnlyActive: 0
   defaultDeactivated: []
   isGameplayPause: 0
-  isLookingAt: 0
-  isFollowing: 0
-  target: {fileID: 0}
-  vCam: {fileID: 0}
+  isLookingAt: 1
+  isFollowing: 1
+  target: {fileID: 95690726}
+  vCam: {fileID: 707723419}
 --- !u!1 &345062174
 GameObject:
   m_ObjectHideFlags: 0
@@ -26835,7 +26835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 91.59344, y: 5.8, z: -36.40683}
+  m_FollowOffset: {x: 83.95883, y: 5.8, z: -46.12016}
   m_XDamping: 1
   m_YDamping: 10.2
   m_ZDamping: 1
@@ -34069,9 +34069,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009368544}
-  m_LocalRotation: {x: 0.00000018998983, y: -0.00000026682395, z: 0.000000100233606,
-    w: -1}
-  m_LocalPosition: {x: 0.36263323, y: 1.1789782, z: -70.64923}
+  m_LocalRotation: {x: -0.0613244, y: 0.0045816144, z: 0.00028149635, w: 0.9981074}
+  m_LocalPosition: {x: -0.39, y: 2.4699988, z: -42.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
