@@ -7956,7 +7956,7 @@ GameObject:
   - component: {fileID: 465128726}
   - component: {fileID: 465128725}
   m_Layer: 5
-  m_Name: BacktoMainMenu
+  m_Name: ExitBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8023,22 +8023,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 37192028}
-        m_MethodName: BackToMainMenu
+        m_MethodName: QuitTheGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1490598531}
-        m_MethodName: ClosePopup
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 183026109}
-          m_ObjectArgumentAssemblyTypeName: Popup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10935,7 +10924,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -20035,7 +20024,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -36734,7 +36723,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uFE94\uFEF4\uFEB4\uFEF4\uFE8B\uFEAE\uFEDF\u0627 \uFE94\uFEE4\uFE8B\uFE8E\uFED8\uFEDF\u0627"
+  m_text: "\u062C\u0648\uFEAE\uFEA7"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2aec9026b865c724180e1db918f5de5d, type: 2}
   m_sharedMaterial: {fileID: 21441631188738504, guid: 2aec9026b865c724180e1db918f5de5d,
@@ -36763,7 +36752,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 39.35
+  m_fontSize: 46.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -36804,20 +36793,20 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2136279513}
-    characterCount: 16
+    characterCount: 4
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -36842,8 +36831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82e486bf6fcd884d8937f0e3b981ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arText: "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629"
-  enText: Main Menu
+  arText: "\u062E\u0631\u0648\u062C"
+  enText: Exit
 --- !u!114 &2136279515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36856,7 +36845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0574ff4379db114b93371ffbb9c6fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629"
+  text: "\u062E\u0631\u0648\u062C"
   tashkeel: 0
   hinduNumbers: 0
 --- !u!222 &2136279516
