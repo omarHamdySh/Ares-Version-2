@@ -5040,6 +5040,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1661261035}
+        m_MethodName: EndTraining
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1490598531}
         m_MethodName: OpenMenu
         m_Mode: 2
@@ -14888,7 +14899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1258531626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22064,6 +22075,7 @@ MonoBehaviour:
   roomManager: {fileID: 1661261028}
   characterManager: {fileID: 1661261029}
   controllersStateMachine: {fileID: 1661261033}
+  presentationManager: {fileID: 0}
   charPrefab: {fileID: 625488201829187797, guid: c5b380c576f09014b8025787cd9de644,
     type: 3}
   hippernationRoom: {fileID: 680894814}
@@ -22075,6 +22087,7 @@ MonoBehaviour:
   RightBoundry: {fileID: 1249532779}
   FrontBoundry: {fileID: 1131548196}
   BackBoundry: {fileID: 97354907}
+  CharInTraining: {fileID: 0}
 --- !u!4 &1661261036
 Transform:
   m_ObjectHideFlags: 0
