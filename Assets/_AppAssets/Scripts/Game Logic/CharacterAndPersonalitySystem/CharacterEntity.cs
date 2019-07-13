@@ -394,7 +394,7 @@ public class CharacterEntity : MonoBehaviour
             // Switch to training time state
 
             // Open the UI and Fire
-            character.container.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            //character.container.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             GetComponent<Dragable_Item>().IsTraining = true;
             LevelManager.Instance.CharInTraining = GetComponent<Dragable_Item>();
             ZUIManager.Instance.OpenMenu("TrainingMenu");

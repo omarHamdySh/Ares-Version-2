@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class RandomGenerateTrainAnim : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class RandomGenerateTrainAnim : MonoBehaviour
 
     [SerializeField] private RuntimeAnimatorController charTrainAnime;
     [SerializeField] private Button[] animBtns;
+    [SerializeField] private GameObject Fire;
+    [SerializeField] private Vector3[] firePos;
 
     #region Tutorial
     [SerializeField] private FixTextMeshPro tutorialTxt;
@@ -61,12 +62,15 @@ public class RandomGenerateTrainAnim : MonoBehaviour
         }
     }
 
+    #region Tutorial 1
+
     public void StartTutorial()
     {
         isArabic = true; /*(PlayerPrefs.GetString("Lang").Equals("ar")) ? true : false;*/
         isTutorialTextTimerRun = true;
         lineIndex = 0;
-        StartCoroutine("TutorialTimer");
+        Fire.SetActive(true);
+        StartCoroutine(TutorialTimer());
     }
 
     IEnumerator TutorialTimer()
@@ -90,6 +94,13 @@ public class RandomGenerateTrainAnim : MonoBehaviour
 
     public void ShowResult(CharacterTrainingAnimationsState animationState)
     {
+        charcter.transform.GetChild(4).gameObject.SetActive(true);
+        charcter.transform.GetChild(4).localPosition = new Vector2(firePos[((int)animationState) - 1].x, firePos[((int)animationState) - 1].y);
+        charcter.transform.GetChild(4).rotation = Quaternion.Euler(
+            firePos[((int)animationState) - 1].z,
+            charcter.transform.GetChild(4).rotation.eulerAngles.y,
+            charcter.transform.GetChild(4).rotation.eulerAngles.z
+            );
         if (animationState == CharacterTrainingAnimationsState.Correct)
         {
             tutorialTxt.text = "صحيح لقد اتقنت التدريب";
@@ -110,6 +121,7 @@ public class RandomGenerateTrainAnim : MonoBehaviour
         if (isCorrect)
         {
             tutorialTxt.text = "";
+            Fire.SetActive(false);
             RestAnimToIdle();
             animChoserBtns.SwitchVisibility();
         }
@@ -120,6 +132,7 @@ public class RandomGenerateTrainAnim : MonoBehaviour
             GenerateRandome();
             animChoser.SwitchVisibility();
         }
+        charcter.transform.GetChild(4).gameObject.SetActive(false);
     }
 
     public void RestAnimToIdle()
@@ -129,4 +142,5 @@ public class RandomGenerateTrainAnim : MonoBehaviour
             charcter.GetComponent<TrainingAnimationsManager>().runThisAnimation(0);
         }
     }
+    #endregion
 }
