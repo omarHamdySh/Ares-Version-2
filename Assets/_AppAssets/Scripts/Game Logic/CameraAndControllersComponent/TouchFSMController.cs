@@ -83,7 +83,7 @@ public class TouchFSMController : MonoBehaviour
             {
                 if (selectedObject != null)
                 {
-                    Select(selectedObject);
+                    //Select(selectedObject);
                 }
             }
         }

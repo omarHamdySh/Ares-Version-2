@@ -390,7 +390,10 @@ public class CharacterEntity : MonoBehaviour
         {
 
             // Zoom in to that room
-
+            if (LevelManager.Instance.presentationManager)
+            {
+                LevelManager.Instance.presentationManager.playSlide(20);
+            }
             // Switch to training time state
 
             // Open the UI and Fire
