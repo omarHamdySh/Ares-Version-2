@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void BackToMainMenu()
     {
-        StartCoroutine(LoadAsynchronously(0));
+        StartCoroutine(LoadAsynchronously(1));
     }
 
     /// <summary>
