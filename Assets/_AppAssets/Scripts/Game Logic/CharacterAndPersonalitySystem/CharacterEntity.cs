@@ -263,7 +263,7 @@ public class CharacterEntity : MonoBehaviour
     void updateCharacterStamina()
     {
         staminaBarGameObject.transform.position = staminaBarTracker.position;
-        staminaBarImage.fillAmount = (character.stamina>1?character.stamina:1) / 10;
+        staminaBarImage.fillAmount = (character.stamina > 1 ? character.stamina : 1) / 10;
         if (character.stamina >= 7.5)
         {
             staminaBarImage.color = LevelUIManager.Instance.GoodColor;
@@ -395,6 +395,8 @@ public class CharacterEntity : MonoBehaviour
 
             // Open the UI and Fire
             character.container.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            GetComponent<Dragable_Item>().IsTraining = true;
+            LevelManager.Instance.CharInTraining = GetComponent<Dragable_Item>();
             ZUIManager.Instance.OpenMenu("TrainingMenu");
         }
         else

@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
     #endregion
     int charindex = 0;
 
+    [HideInInspector] public Dragable_Item CharInTraining;
+
     public static LevelManager Instance
     {
         get { return _Instance; }
@@ -61,6 +63,15 @@ public class LevelManager : MonoBehaviour
         foreach (Transform roomTransform in Environment.transform)
         {
             roomManager.rooms.Add(new Room(roomTransform.gameObject));
+        }
+    }
+
+    public void EndTraining()
+    {
+        if (CharInTraining)
+        {
+            CharInTraining.IsTraining = false;
+            CharInTraining = null;
         }
     }
 
