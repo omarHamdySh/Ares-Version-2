@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: 9b3fd1e4473bb7f468863b6442d1363e
+guid: 46a027cca27dad24ba896b971796213f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Traing-room-arrow_0
-    21300002: Traing-room-arrow_1
-    21300004: Traing-room-arrow_2
-    21300006: Traing-room-arrow_3
-    21300008: Traing-room-arrow_4
-    21300010: Traing-room-arrow_5
-    21300012: Traing-room-arrow_6
-    21300014: Traing-room-arrow_7
-    21300016: Traing-room-arrow_8
-    21300018: Traing-room-arrow_9
-    21300020: Traing-room-arrow_10
-    21300022: Traing-room-arrow_11
-    21300024: Traing-room-arrow_12
+    21300000: "wrong_position_2_\u0650Arrow_0"
+    21300002: "wrong_position_2_\u0650Arrow_1"
+    21300004: "wrong_position_2_\u0650Arrow_2"
+    21300006: "wrong_position_2_\u0650Arrow_3"
+    21300008: "wrong_position_2_\u0650Arrow_4"
+    21300010: "wrong_position_2_\u0650Arrow_5"
+    21300012: "wrong_position_2_\u0650Arrow_6"
+    21300014: "wrong_position_2_\u0650Arrow_7"
+    21300016: "wrong_position_2_\u0650Arrow_8"
+    21300018: "wrong_position_2_\u0650Arrow_9"
+    21300020: "wrong_position_2_\u0650Arrow_10"
+    21300022: "wrong_position_2_\u0650Arrow_11"
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -130,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Traing-room-arrow_0
+      name: "wrong_position_2_\u0650Arrow_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -144,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a610340e6ade46a43a7c5728857ce8e6
+      spriteID: fbb06b74ce7d50c46a2ee1fe903865dd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_1
+      name: "wrong_position_2_\u0650Arrow_1"
       rect:
         serializedVersion: 2
         x: 500
@@ -164,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff93e71f63cd9d0458f37a810966152d
+      spriteID: c685e673811081347bde00cdf45f1f15
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_2
+      name: "wrong_position_2_\u0650Arrow_2"
       rect:
         serializedVersion: 2
         x: 1000
@@ -184,13 +183,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93655337df2dc934fbf65c253dfdc15d
+      spriteID: 8150bf1131fd68b4486dcc91b5981809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_3
+      name: "wrong_position_2_\u0650Arrow_3"
       rect:
         serializedVersion: 2
         x: 1500
@@ -204,13 +203,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 523f746590ecd5d48b3fee5b42a2fd8f
+      spriteID: 267ec2bb10d4ce84b89921a614dec30d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_4
+      name: "wrong_position_2_\u0650Arrow_4"
       rect:
         serializedVersion: 2
         x: 2000
@@ -224,13 +223,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbb9548b53c9af24a90a375aba06ea60
+      spriteID: 8d7485a082f64be42aaddf53f551415d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_5
+      name: "wrong_position_2_\u0650Arrow_5"
       rect:
         serializedVersion: 2
         x: 0
@@ -244,13 +243,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fc55de72f280f54791fe0d9ea3effcb
+      spriteID: ee23674a568162f43918ca2213f119cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_6
+      name: "wrong_position_2_\u0650Arrow_6"
       rect:
         serializedVersion: 2
         x: 500
@@ -264,13 +263,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81f062991a1ec8649a4e9062e4dd8fbe
+      spriteID: e1aec61290eba834db87bffa62583d09
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_7
+      name: "wrong_position_2_\u0650Arrow_7"
       rect:
         serializedVersion: 2
         x: 1000
@@ -284,13 +283,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78d9b52796ca2a1449f826b6f7a32080
+      spriteID: e511527205d64474aa0a6180ff9c9371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_8
+      name: "wrong_position_2_\u0650Arrow_8"
       rect:
         serializedVersion: 2
         x: 1500
@@ -304,13 +303,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3369eb02206dfb14e90088c2b9b4c150
+      spriteID: 1ea35692790268e4d88578e99cc37a7e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_9
+      name: "wrong_position_2_\u0650Arrow_9"
       rect:
         serializedVersion: 2
         x: 2000
@@ -324,13 +323,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af4eeaa81b35d5f499784a906574ed4a
+      spriteID: 4a0a656c9bae29f49a1ee6c5e5f7dbc2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_10
+      name: "wrong_position_2_\u0650Arrow_10"
       rect:
         serializedVersion: 2
         x: 0
@@ -344,13 +343,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53fa05664d9263b4d8390ec927231e2b
+      spriteID: 8b3041082bef4c44aa45fbcfbe440ea6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Traing-room-arrow_11
+      name: "wrong_position_2_\u0650Arrow_11"
       rect:
         serializedVersion: 2
         x: 500
@@ -364,27 +363,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87cf1546dffbd424b8f85c7b821fb9fd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Traing-room-arrow_12
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ce4920187d6d1e45bd7b5d5b251579c
+      spriteID: 5ebfacdd076272f4787fa15d4a11a9bc
       vertices: []
       indices: 
       edges: []
@@ -392,7 +371,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c6c5d52de0480ca48bcfe2d583be33ba
+    spriteID: f29cd7c39a521a64f90e17433a288fde
     vertices: []
     indices: 
     edges: []
