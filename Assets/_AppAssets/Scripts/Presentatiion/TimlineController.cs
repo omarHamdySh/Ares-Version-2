@@ -23,10 +23,12 @@ public class TimlineController : MonoBehaviour
 
     public void PlayFromTimelines()
     {
+
         TimelineAsset selectedAsset;
         currentTimeline =  Mathf.Clamp(currentTimeline,0, timelines.Count - 1);
         selectedAsset = timelines[currentTimeline];
         playableDirectors[0].Play(selectedAsset);
+
     }
     public void playSlide(int slideNumber) {
         this.currentTimeline = slideNumber - 1;

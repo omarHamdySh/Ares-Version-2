@@ -12,8 +12,10 @@ public class presentationSlide : MonoBehaviour
     public bool isGameplayPause;
     public bool isLookingAt;
     public bool isFollowing;
+    public bool isPresentationModeOff;
     public GameObject target;
     public CinemachineVirtualCamera vCam;
+    
     // Start is called before the first frame update
 
     public void Update()
@@ -34,6 +36,10 @@ public class presentationSlide : MonoBehaviour
         if (isFollowing)
         {
             vCam.m_Follow = target.transform;
+        }
+        if (isPresentationModeOff && LevelManager.Instance.isPresentationModeOn())
+        {
+            LevelManager.Instance.turnPresentationModeOff();
         }
 
     }

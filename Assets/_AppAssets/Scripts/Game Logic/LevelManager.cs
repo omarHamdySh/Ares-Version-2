@@ -197,7 +197,20 @@ public class LevelManager : MonoBehaviour
     {
         OnDragOff.Raise();
     }
-
+    public bool isPresentationModeOn() {
+        bool state = false;
+        state = presentationManager.playableDirectors[0].gameObject.activeInHierarchy;
+        state = Camera.main.gameObject.GetComponent<Cinemachine.CinemachineBrain>().enabled;
+        return state;
+    }
+    public void turnPresentationModeOff() {
+        //presentationManager.playableDirectors[0].gameObject.SetActive(false);
+        Camera.main.gameObject.GetComponent<Cinemachine.CinemachineBrain>().enabled = false;
+    }
+    public void turnPresentationModeOn() {
+        //presentationManager.playableDirectors[0].gameObject.SetActive(true);
+        Camera.main.gameObject.GetComponent<Cinemachine.CinemachineBrain>().enabled = true;
+    }
     #region Deprecated 
     //public void calculateRoomsBounds()
     //{
