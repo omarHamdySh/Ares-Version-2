@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589561476652896624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9499998, y: 0, z: 3.2099998}
+  m_LocalPosition: {x: -3.9499998, y: 0, z: 0.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6687967882721900746}
@@ -1868,7 +1868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6171054985292971777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1849998, y: 0.030000044, z: 0.963}
+  m_LocalPosition: {x: -1.1849998, y: 0.030000044, z: 0.069000006}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 8897162242395730096}
@@ -2217,7 +2217,7 @@ MonoBehaviour:
     staminaReductionRate: 0.2
     jobRoom: {fileID: 0}
     jobAcquisionHour: 0
-    jobPosition: {fileID: 0}
+    jobPosition: {fileID: 589561476652896624}
     jobFacingDirection: 1
 --- !u!1 &7405703509034494337
 GameObject:
@@ -2576,7 +2576,7 @@ MonoBehaviour:
     staminaReductionRate: 0.2
     jobRoom: {fileID: 0}
     jobAcquisionHour: 0
-    jobPosition: {fileID: 0}
+    jobPosition: {fileID: 589561476652896624}
     jobFacingDirection: 1
   isReversed: 0
   entrancePos: {fileID: 2671039530074739788}
