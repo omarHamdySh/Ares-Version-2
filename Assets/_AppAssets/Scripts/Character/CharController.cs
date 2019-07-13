@@ -71,7 +71,7 @@ public class CharController : MonoBehaviour
                     isMovePath = false;
                     GetComponent<Dragable_Item>().containerRoom = LevelManager.Instance.roomManager.populateAndGetContainerRoom(this.gameObject);
                     if (!GetComponent<Dragable_Item>().containerRoom.name.Equals("TrainningRoom")
-                        ||!GetComponent<Dragable_Item>().containerRoom.name.Equals("HibernationRoom"))
+                        && !GetComponent<Dragable_Item>().containerRoom.name.Equals("HibernationRoom"))
                     {
                         GetComponent<Dragable_Item>().containerRoom.GetComponentInChildren<RoomEntity>().AddCharCountToRoom();
                     }
