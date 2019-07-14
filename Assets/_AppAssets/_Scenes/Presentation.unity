@@ -7512,56 +7512,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 2073270931}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 624333266}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 904841217}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 172531216}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 843988425}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[6]
-      value: 
-      objectReference: {fileID: 1983857185}
-    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
-        type: 3}
-      propertyPath: m_subTextObjects.Array.data[7]
-      value: 
-      objectReference: {fileID: 1272707068}
     - target: {fileID: 224771809428812646, guid: 2812e2ddb16df4941a6391d03af6f263,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7667,6 +7617,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 2073270931}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 624333266}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 904841217}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 172531216}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 843988425}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 1983857185}
+    - target: {fileID: 3874640443533334923, guid: 2812e2ddb16df4941a6391d03af6f263,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 1272707068}
     - target: {fileID: 224363531761630182, guid: 2812e2ddb16df4941a6391d03af6f263,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10618,7 +10618,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.654902, g: 0.49803922, b: 0.83137256, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16069,6 +16069,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b419b9915a696074799cbd175653a952, type: 2}
   - {fileID: 11400000, guid: da8413d911de0ae45b39492b87c962a1, type: 2}
   - {fileID: 11400000, guid: d2f1e432b441a8a41848ed3912738186, type: 2}
+  - {fileID: 11400000, guid: e24cdca9c8cea50458ca08ae3d77e8c0, type: 2}
   currentTimeline: 0
 --- !u!114 &980255420
 MonoBehaviour:
@@ -26632,7 +26633,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.654902, g: 0.49803922, b: 0.83137256, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26699,7 +26700,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -28819,7 +28820,7 @@ MonoBehaviour:
 
     our idea
 
-    what is tycon
+    what is tycoon
 
     Environment Design
 
@@ -29595,7 +29596,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eecb56ea2a94eed46a29549c2e2b04d6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff1c007c974dd2848aecf21e1cf6b964, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -33275,7 +33276,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.654902, g: 0.49803922, b: 0.83137256, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -33342,7 +33343,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}

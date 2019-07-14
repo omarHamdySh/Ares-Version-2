@@ -14,7 +14,10 @@ public class LangSetting : MonoBehaviour
     {
         fixTextMeshPro = GetComponent<FixTextMeshPro>();
         fixText = GetComponent<FixText>();
-        SettingManger.Instance.LangSettings.Add(this);
+        if (SettingManger.Instance)
+        {
+            SettingManger.Instance.LangSettings.Add(this);
+        }
 
         if (!PlayerPrefs.HasKey("Lang"))
         {
