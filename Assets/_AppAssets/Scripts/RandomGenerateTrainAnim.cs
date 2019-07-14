@@ -40,25 +40,28 @@ public class RandomGenerateTrainAnim : MonoBehaviour
 
         charcter = LevelManager.Instance.roomManager.getRoomWithGameObject(trainingRoom.transform.parent.gameObject)
             .roomJobs[1].jobHolder.characterGameObject;
-        charcter.GetComponent<Animator>().runtimeAnimatorController = charTrainAnime;
-        charcter.GetComponent<TrainingAnimationsManager>().randomGenerateTrain = this;
-
-        int index;
-
-        for (int i = 0; i < animControllers.Length; i++)
+        if (charcter)
         {
-            // Randomize the animation controller
-            index = Random.Range(0, objs.Count);
-            animBtnObj[i].runtimeAnimatorController = animControllers[objs[index]];
-            int slot = objs[index] + 1;
+            charcter.GetComponent<Animator>().runtimeAnimatorController = charTrainAnime;
+            charcter.GetComponent<TrainingAnimationsManager>().randomGenerateTrain = this;
 
-            // Add listener to button
-            animBtns[i].onClick.RemoveAllListeners();
-            animBtns[i].onClick.AddListener(() => charcter.GetComponent<TrainingAnimationsManager>().runThisAnimation(slot));
-            animBtns[i].onClick.AddListener(() => animChoser.SwitchVisibility());
+            int index;
 
-            // Remove the index from the list
-            objs.Remove(objs[index]);
+            for (int i = 0; i < animControllers.Length; i++)
+            {
+                // Randomize the animation controller
+                index = Random.Range(0, objs.Count);
+                animBtnObj[i].runtimeAnimatorController = animControllers[objs[index]];
+                int slot = objs[index] + 1;
+
+                // Add listener to button
+                animBtns[i].onClick.RemoveAllListeners();
+                animBtns[i].onClick.AddListener(() => charcter.GetComponent<TrainingAnimationsManager>().runThisAnimation(slot));
+                animBtns[i].onClick.AddListener(() => animChoser.SwitchVisibility());
+
+                // Remove the index from the list
+                objs.Remove(objs[index]);
+            }
         }
     }
 
