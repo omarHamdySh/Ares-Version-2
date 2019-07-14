@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/_AppAssets/_Scenes/Splash.unity
     guid: 5876fb8e803a3dd4880fa20a9880f92c
   - enabled: 1
+    path: Assets/_AppAssets/_Scenes/CutScene.unity
+    guid: 3fe6673546024e84195ef96dcdb9dba2
+  - enabled: 1
     path: Assets/_AppAssets/_Scenes/MainMenu.unity
     guid: fbbb9de0f1e4ecc48b03f3ba3485d9da
   - enabled: 1
-    path: Assets/_AppAssets/_Scenes/GamePlay 2.unity
-    guid: ea617feff0ea2194e9faafceefb5c13a
+    path: Assets/_AppAssets/_Scenes/Presentation.unity
+    guid: 432507cbc74194744b8edcc2f7c5b006
   m_configObjects: {}

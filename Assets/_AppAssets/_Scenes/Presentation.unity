@@ -10425,7 +10425,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1391103872}
         m_MethodName: ChoseBuildPrefab
         m_Mode: 5
         m_Arguments:
@@ -11626,7 +11626,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1661261035}
         m_MethodName: EndTraining
         m_Mode: 1
         m_Arguments:
@@ -11637,7 +11637,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: OpenMenu
         m_Mode: 2
         m_Arguments:
@@ -13653,7 +13653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: ClosePopup
         m_Mode: 2
         m_Arguments:
@@ -15531,7 +15531,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1391103872}
         m_MethodName: CloseBuildSlots
         m_Mode: 1
         m_Arguments:
@@ -17749,7 +17749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: ClosePopup
         m_Mode: 2
         m_Arguments:
@@ -18770,7 +18770,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: OpenPopup
         m_Mode: 2
         m_Arguments:
@@ -19122,7 +19122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1152468845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21426,7 +21426,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: OpenPopup
         m_Mode: 2
         m_Arguments:
@@ -22839,6 +22839,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1eff01c80b2f8949a7cf3f8f0252827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1391103872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1743153264, guid: ac94fd0d54697894e828f65189e8fd04,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391103869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10805d8079b4ad4da9d77d2b423a2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1405949426
@@ -25122,16 +25134,24 @@ MonoBehaviour:
   - {fileID: 1052353900}
   - {fileID: 810588632}
   - {fileID: 1349248753}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CurActiveMenu: {fileID: 1349248753}
   AnimateFirstMenuAtStart: 0
   AllPopups:
   - {fileID: 1959135952}
   - {fileID: 871059387}
   - {fileID: 730181337}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CurActivePopup: {fileID: 0}
   AllSideMenus:
   - {fileID: 242482491}
   - {fileID: 140218478}
+  - {fileID: 0}
+  - {fileID: 0}
   CurActiveSideMenu: {fileID: 0}
   EscIsBack: 0
   DisableBack: 0
@@ -26341,7 +26361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 26.88737, y: 3.911023, z: 5.459248}
+  m_FollowOffset: {x: 26.40998, y: -3.540001, z: -6.28001}
   m_XDamping: 1
   m_YDamping: 10.2
   m_ZDamping: 1
@@ -28329,7 +28349,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: OpenPopup
         m_Mode: 2
         m_Arguments:
@@ -31075,7 +31095,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1391103872}
         m_MethodName: ChoseBuildPrefab
         m_Mode: 5
         m_Arguments:
@@ -35182,7 +35202,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1661261035}
         m_MethodName: CreateNewChar
         m_Mode: 1
         m_Arguments:
@@ -35723,7 +35743,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1391103872}
         m_MethodName: ChoseBuildPrefab
         m_Mode: 5
         m_Arguments:
@@ -37300,7 +37320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: ClosePopup
         m_Mode: 2
         m_Arguments:
@@ -37311,7 +37331,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1490598531}
         m_MethodName: OpenPopup
         m_Mode: 2
         m_Arguments:
