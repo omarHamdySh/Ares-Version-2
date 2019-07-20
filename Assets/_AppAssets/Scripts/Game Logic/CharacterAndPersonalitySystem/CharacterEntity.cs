@@ -38,6 +38,12 @@ public class CharacterEntity : MonoBehaviour
     HorizontalDirecton roomEntrance;
     // Start is called before the first frame update
 
+    private void Awake()
+    {
+        characterAnimationFSM = GetComponent<CharacterAnimationFSM>();
+        characterController = GetComponent<CharController>();
+    }
+
     void Start()
     {
         if (LevelManager.Instance.Testing)
@@ -45,8 +51,7 @@ public class CharacterEntity : MonoBehaviour
             //character = new Character(this.gameObject);
         }
         LevelManager.Instance.characterManager.characters.Add(character);
-        characterAnimationFSM = GetComponent<CharacterAnimationFSM>();
-        characterController = GetComponent<CharController>();
+        
         previousFramePos = transform.localPosition;
         fillCharacterData();
         staminaBarGameObject = Instantiate(staminaBarPrefab, staminaBarTracker.position, Quaternion.identity, null);
