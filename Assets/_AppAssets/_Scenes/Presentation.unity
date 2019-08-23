@@ -26361,7 +26361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 26.40998, y: -3.540001, z: -6.28001}
+  m_FollowOffset: {x: -0.39, y: -5.240001, z: -42.48}
   m_XDamping: 1
   m_YDamping: 10.2
   m_ZDamping: 1
@@ -29618,7 +29618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ff1c007c974dd2848aecf21e1cf6b964, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
